@@ -8,4 +8,8 @@ public class WalkCommand : Command
     {
         player.Walk();
     }
+    public override void InitializeCommand(int index, string name = null, System.Type type = null)
+    {
+        base.InitializeCommand(index, "ANDAR", typeof(WalkCommand));
+    }
 }

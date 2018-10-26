@@ -8,4 +8,8 @@ public class LookUpCommand : Command
     {
         player.Look(Vector2.down);
     }
+    public override void InitializeCommand(int index, string name = null, System.Type type = null)
+    {
+        base.InitializeCommand(index, "OLHAR CIMA", typeof(LookUpCommand));
+    }
 }

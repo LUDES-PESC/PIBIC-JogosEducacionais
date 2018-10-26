@@ -1,29 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public abstract class Command : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandler{
-    [SerializeField] private TMP_Text commandName;
-    [SerializeField] private bool selected;
+public abstract class Command : MonoBehaviour, IBeginDragHandler, IDropHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
+{
+    private bool selected;
     public int index;
+    public Type type;
 
     public abstract void Execute(Player player);
 
-    public void Start()
+    public virtual void InitializeCommand(int index, string name = null, Type type = null)
     {
+        GetComponent<Button>().onClick.RemoveAllListeners();
         GetComponent<Button>().onClick.AddListener(delegate { ToggleSelect(); });
-    }
-    public virtual void SetCommandName(string name)
-    {
-        transform.GetChild(2).GetComponent<TMP_Text>().text = name;
-    }
-    public void SetCommandIndex(int commandIndex)
-    {
-        this.index = commandIndex;
         transform.GetChild(0).GetComponent<TMP_Text>().text = index.ToString();
+        transform.GetChild(2).GetComponent<TMP_Text>().text = name;
+        this.type = type;
+        this.index = index;
     }
     public void ToggleSelect()
     {
@@ -44,19 +40,31 @@ public abstract class Command : MonoBehaviour, IBeginDragHandler,IDragHandler,IE
         //DELETE
         //ver se esta listada como selected -> pode dar problema?
     }
-
     public void OnBeginDrag(PointerEventData eventData)
     {
-        print("BEGIN DRAG");
+        CommandSelectionManager.BeginSelectionMove(this);
+        //criar ícone para seguir cursor
     }
-
+    public void OnDrop(PointerEventData eventData)
+    {
+        CommandSelectionManager.EndSelectionMove(this);
+    }
     public void OnDrag(PointerEventData eventData)
     {
-        print("DRAGGING: " + eventData.position);
+        //Icone seguindo cursor
     }
-
     public void OnEndDrag(PointerEventData eventData)
     {
-        print("END DRAG");
+        //desativar icone
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (CommandSelectionManager.isMoving)
+            transform.GetChild(3).gameObject.SetActive(true);
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (CommandSelectionManager.isMoving)
+            transform.GetChild(3).gameObject.SetActive(false);
     }
 }

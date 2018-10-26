@@ -8,4 +8,8 @@ public class WaitCommand : Command
     {
         player.Wait();
     }
+    public override void InitializeCommand(int index, string name = null, System.Type type = null)
+    {
+        base.InitializeCommand(index, "ESPERAR", typeof(WaitCommand));
+    }
 }

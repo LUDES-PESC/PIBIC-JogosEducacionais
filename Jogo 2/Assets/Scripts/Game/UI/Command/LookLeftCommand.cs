@@ -8,4 +8,8 @@ public class LookLeftCommand : Command
     {
         player.Look(Vector2.left);
     }
+    public override void InitializeCommand(int index, string name = null, System.Type type = null)
+    {
+        base.InitializeCommand(index, "OLHAR ESQUERDA", typeof(LookLeftCommand));
+    }
 }
