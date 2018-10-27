@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CommandPanel : MonoBehaviour {
     [SerializeField] public List<Command> commands;
-
     [SerializeField] private GameObject commandPrefab;
     [SerializeField] private Transform commandRoot;
 
@@ -17,7 +16,23 @@ public class CommandPanel : MonoBehaviour {
         commands.Add(command);
         command.InitializeCommand(commands.Count - 1);
     }
-    public void DeleteAllCommands()
+    public void DeleteCommands(){
+        var list = CommandSelectionManager.selectedCommands;
+        if(list.Count == 0){
+            DeleteAllCommands();
+        }else{
+            DeleteCommandsOnList(list);
+        }
+    }
+    private void DeleteCommandsOnList(List<Command> cmdList){
+        cmdList.Sort(delegate(Command x, Command y){
+            return x.index.CompareTo(y.index);
+        });
+        for(int i = cmdList.Count - 1; i >= 0; i--)
+            commands.RemoveAt(cmdList[i].index);
+        ResetCommands();
+    }
+    private void DeleteAllCommands()
     {
         CommandSelectionManager.ResetSelectedCommands();
         commands = new List<Command>();
