@@ -8,14 +8,6 @@ public class CommandPanel : MonoBehaviour {
     [SerializeField] private GameObject commandPrefab;
     [SerializeField] private Transform commandRoot;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            AddCommand<WaitCommand>();
-            AddCommand<LookDownCommand>();
-        }
-    }
     public void AddCommand<T>() where T : Command
     {
         var go = Instantiate(commandPrefab, commandRoot);
