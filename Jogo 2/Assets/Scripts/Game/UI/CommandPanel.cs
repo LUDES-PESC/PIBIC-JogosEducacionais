@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -43,7 +43,10 @@ public class CommandPanel : MonoBehaviour {
     }
     public void Run()
     {
-        //RUN
+        ConsoleLine.WriteLine("=============================================");
+        ConsoleLine.WriteLine("NOVA EXECUÇÃO ("+DateTime.Now.ToLongTimeString()+")");
+        ConsoleLine.WriteLine("=============================================");
+        CommandExecutor.executor.Execute(commands);
     }
     public void ResetCommands()
     {
