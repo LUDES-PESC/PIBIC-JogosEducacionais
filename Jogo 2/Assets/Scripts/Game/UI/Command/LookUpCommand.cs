@@ -6,7 +6,7 @@ public class LookUpCommand : Command
 {
     public override void Execute(Player player)
     {
-        player.Look(Vector2.up);
+        player.Look(Vector2Int.up);
     }
     public override void InitializeCommand(int index, string name = null, System.Type type = null)
     {

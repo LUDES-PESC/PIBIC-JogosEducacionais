@@ -6,7 +6,7 @@ public class LookDownCommand : Command
 {
     public override void Execute(Player player)
     {
-        player.Look(Vector2.down);
+        player.Look(Vector2Int.down);
     }
     public override void InitializeCommand(int index, string name = null, System.Type type = null)
     {

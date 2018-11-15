@@ -8,7 +8,7 @@ public class CommandExecutor : MonoBehaviour {
 
     public static CommandExecutor executor;
     public Player player;
-    public GridElement[,] grid = new GridElement[MAP_SIZE, MAP_SIZE];
+    
     public GroundType[,] groundMap = new GroundType[MAP_SIZE, MAP_SIZE];
 
     private void Start()
@@ -17,34 +17,24 @@ public class CommandExecutor : MonoBehaviour {
     }
     public void Execute(List<Command> commands)
     {
-        player.position = Vector2.zero;
-        LoadMap();
-        int turnQuantity = commands.Count;
-        for(int i = 0; i < turnQuantity; i++)
-        {
-            commands[i].Execute(player);
-            foreach(var e in grid)
-            {
-                var tb = e as ITurnBased;
-                if (tb != null)
-                    tb.TurnUpdate();
-            }
-        }
+        StartCoroutine(ExecuteCoroutine(commands));
     }
-    public void LoadMap()
+    private IEnumerator ExecuteCoroutine(List<Command> commands)
     {
-        //INIT GROUND
-        for(int i = 0; i < MAP_SIZE; i++)
+        ObstacleMap.LoadMap();
+        player.SetPosition(0, 0);
+        player.SetLook(1, 0);
+        for (int i = 0; i < commands.Count; i++)
         {
-            for (int j = 0; j < MAP_SIZE; j++)
-            {
-                if(i != 1)
-                    groundMap[i, j] = GroundType.SAND;
-                else
-                    groundMap[i, j] = GroundType.WATER;
-            }
+            yield return new WaitForSeconds(Globals.TIME_BETWEEN_TURNS);
+
+            foreach (var e in ObstacleMap.obstacles)
+                e.Value.TurnStart();
+
+            commands[i].Execute(player);
+
+            foreach (var e in ObstacleMap.obstacles)
+                e.Value.TurnUpdate();
         }
-        grid[0, 1] = new WoodenBox(0, 1);
-        grid[1, 0] = new Raft(1, 0);
     }
 }

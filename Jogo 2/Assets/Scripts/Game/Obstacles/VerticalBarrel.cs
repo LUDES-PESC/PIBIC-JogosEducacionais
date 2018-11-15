@@ -1,0 +1,19 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class VerticalBarrel : Obstacle, IBulletTarget
+{
+    public override bool OnPush(Vector2Int direction)
+    {
+        if (direction.x == 0 && Mathf.Abs(direction.y) == 1)
+        {
+            return Move(direction);
+        }
+        return false;
+    }
+    public void OnBulletTouch()
+    {
+        //DESTRUIR
+    }
+}
