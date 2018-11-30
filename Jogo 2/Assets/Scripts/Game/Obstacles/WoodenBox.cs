@@ -6,6 +6,6 @@ public class WoodenBox : Obstacle, IBulletTarget
 {
     public void OnBulletTouch()
     {
-        //DESTRUIR
+        ConsoleLine.WriteLine(name + " WAS TOUCHED BY BULLET");
     }
 }

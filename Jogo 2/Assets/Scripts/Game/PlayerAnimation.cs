@@ -26,4 +26,8 @@ public class PlayerAnimation : MonoBehaviour {
             animator.Play("player_idle_left");
         }
     }
+    public void DigAnimation()
+    {
+        animator.Play("player_dig_down");
+    }
 }

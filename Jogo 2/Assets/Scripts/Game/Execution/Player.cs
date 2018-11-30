@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
     public Vector2Int position;
     public Vector2Int lookDirection;
 
+    public GameObject bulletPrefab;
 
     public bool isWaiting;
     public bool flag;
@@ -55,7 +56,20 @@ public class Player : MonoBehaviour {
     public void Shoot()
     {
         isWaiting = false;
-        ConsoleLine.WriteLine("SHOOT: " + lookDirection + " direction from " + position);
+        Vector2Int bulletPosition = position;
+        for(int i = 0; i < Globals.BULLET_RANGE; i++)
+        {
+            bulletPosition += lookDirection;
+            var obstacle = ObstacleMap.ObstacleIn(bulletPosition);
+            if (obstacle != null && obstacle.GetComponent<IBulletTarget>() != null)
+            {
+                ConsoleLine.WriteLine("Bullet Start at <" + position.x + "," + position.y +
+                    "> until reaches <" + bulletPosition.x + "," + bulletPosition.y + ">");
+                break;
+            }
+        }
+        var bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        StartCoroutine(bullet.GetComponent<Bullet>().Shoot(position, bulletPosition));
     }
     public void Look(Vector2Int direction)
     {
@@ -73,6 +87,21 @@ public class Player : MonoBehaviour {
     {
         print(this.position + "/" + position);
         return this.position == position;
+    }
+    public void Dig()
+    {
+        ConsoleLine.WriteLine("DIG: " + position);
+        GetComponent<PlayerAnimation>().DigAnimation();
+        var treasure = TreasureMap.TreasureIn(position);
+        if (treasure != null && treasure.found == false)
+        {
+            ConsoleLine.WriteLine("FOUND SOMETHING IN " + position);
+            treasure.Find();
+        }
+        else
+        {
+            ConsoleLine.WriteLine("DIDN'T FOUND ANYTHING IN " + position);
+        }
     }
 }
 

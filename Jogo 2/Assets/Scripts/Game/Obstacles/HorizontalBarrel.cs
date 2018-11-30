@@ -14,6 +14,6 @@ public class HorizontalBarrel : Obstacle, IBulletTarget {
     }
     public void OnBulletTouch()
     {
-        //DESTRUIR
+        ConsoleLine.WriteLine(name + " WAS TOUCHED BY BULLET");
     }
 }

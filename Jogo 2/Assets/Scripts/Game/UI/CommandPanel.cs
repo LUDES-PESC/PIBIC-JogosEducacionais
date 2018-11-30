@@ -65,6 +65,10 @@ public class CommandPanel : MonoBehaviour {
                 AddCommand<LookUpCommand>();
             else if (t == typeof(WalkCommand))
                 AddCommand<WalkCommand>();
+            else if (t == typeof(DigCommand))
+                AddCommand<DigCommand>();
+            else if (t == typeof(ShootCommand))
+                AddCommand<ShootCommand>();
             else
                 AddCommand<WaitCommand>();
         }

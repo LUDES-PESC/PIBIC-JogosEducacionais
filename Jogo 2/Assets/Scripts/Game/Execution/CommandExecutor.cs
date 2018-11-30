@@ -22,6 +22,7 @@ public class CommandExecutor : MonoBehaviour {
     private IEnumerator ExecuteCoroutine(List<Command> commands)
     {
         ObstacleMap.LoadMap();
+        TreasureMap.LoadMap();
         player.SetPosition(0, 0);
         player.SetLook(1, 0);
         for (int i = 0; i < commands.Count; i++)

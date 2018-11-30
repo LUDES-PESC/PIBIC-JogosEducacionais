@@ -75,6 +75,9 @@
     <Compile Include="Assets\Scripts\Game\GroundType.cs" />
     <Compile Include="Assets\Scripts\Game\Maps\GroundMap.cs" />
     <Compile Include="Assets\Scripts\Game\Maps\ObstacleMap.cs" />
+    <Compile Include="Assets\Scripts\Game\Maps\Treasure.cs" />
+    <Compile Include="Assets\Scripts\Game\Maps\TreasureMap.cs" />
+    <Compile Include="Assets\Scripts\Game\Obstacles\Bullet.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\HorizontalBarrel.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\IBulletTarget.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\IMovable.cs" />
@@ -86,10 +89,12 @@
     <Compile Include="Assets\Scripts\Game\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\Game\UI\AddCommandPanel.cs" />
     <Compile Include="Assets\Scripts\Game\UI\Command\Command.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\Command\DigCommand.cs" />
     <Compile Include="Assets\Scripts\Game\UI\Command\LookDownCommand.cs" />
     <Compile Include="Assets\Scripts\Game\UI\Command\LookLeftCommand.cs" />
     <Compile Include="Assets\Scripts\Game\UI\Command\LookRightCommand.cs" />
     <Compile Include="Assets\Scripts\Game\UI\Command\LookUpCommand.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\Command\ShootCommand.cs" />
     <Compile Include="Assets\Scripts\Game\UI\Command\WaitCommand.cs" />
     <Compile Include="Assets\Scripts\Game\UI\Command\WalkCommand.cs" />
     <Compile Include="Assets\Scripts\Game\UI\CommandPanel.cs" />
@@ -324,14 +329,14 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.15f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="DOTween">
+      <HintPath>C:/Users/pedro/Documents/GitHub/PIBIC-JogosEducacionais/Jogo 2/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/pedro/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/pedro/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween">
-      <HintPath>C:/Users/pedro/Documents/GitHub/PIBIC-JogosEducacionais/Jogo 2/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.15f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>

@@ -32,7 +32,7 @@ public class AddCommandPanel : MonoBehaviour, IPointerEnterHandler, IPointerExit
                 commandPanel.AddCommand<WalkCommand>();
                 break;
             case "Shoot":
-                print("NOT AVAILABLE");
+                commandPanel.AddCommand<ShootCommand>();
                 break;
             case "LookUp":
                 commandPanel.AddCommand<LookUpCommand>();
@@ -45,6 +45,9 @@ public class AddCommandPanel : MonoBehaviour, IPointerEnterHandler, IPointerExit
                 break;
             case "LookLeft":
                 commandPanel.AddCommand<LookLeftCommand>();
+                break;
+            case "Dig":
+                commandPanel.AddCommand<DigCommand>();
                 break;
         }
     }
