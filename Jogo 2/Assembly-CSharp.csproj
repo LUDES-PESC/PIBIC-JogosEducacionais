@@ -74,6 +74,8 @@
     <Compile Include="Assets\Scripts\Game\Execution\Player.cs" />
     <Compile Include="Assets\Scripts\Game\GroundType.cs" />
     <Compile Include="Assets\Scripts\Game\Maps\GroundMap.cs" />
+    <Compile Include="Assets\Scripts\Game\Maps\LevelMap.cs" />
+    <Compile Include="Assets\Scripts\Game\Maps\MapBuilder.cs" />
     <Compile Include="Assets\Scripts\Game\Maps\ObstacleMap.cs" />
     <Compile Include="Assets\Scripts\Game\Maps\Treasure.cs" />
     <Compile Include="Assets\Scripts\Game\Maps\TreasureMap.cs" />

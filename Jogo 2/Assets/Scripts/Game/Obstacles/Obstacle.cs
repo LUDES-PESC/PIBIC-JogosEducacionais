@@ -5,18 +5,11 @@ using UnityEditor;
 using DG.Tweening;
 
 public abstract class Obstacle : MonoBehaviour {
-    public Vector2Int initialPosition;
     public Vector2Int position;
 
-    public void Start()
+    public void GetPosition()
     {
         position = new Vector2Int((int)(transform.position.x - 0.5f), (int)(transform.position.y - 0.5f));
-        initialPosition = position;
-    }
-    public void ResetPosition()
-    {
-        position = initialPosition;
-        transform.DOMove(new Vector3(initialPosition.x, initialPosition.y, 0) + new Vector3(0.5f, 0.5f, 0) * Globals.TILE_SIZE, 0);
     }
     public bool Move(Vector2Int direction)
     {

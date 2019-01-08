@@ -8,12 +8,15 @@ public class CommandExecutor : MonoBehaviour {
 
     public static CommandExecutor executor;
     public Player player;
+    public MapBuilder mapBuilder;
     
     public GroundType[,] groundMap = new GroundType[MAP_SIZE, MAP_SIZE];
 
     private void Start()
     {
         executor = this;
+        mapBuilder.BuildMap();
+        player.SetLook(1, 0);
     }
     public void Execute(List<Command> commands)
     {
@@ -21,9 +24,8 @@ public class CommandExecutor : MonoBehaviour {
     }
     private IEnumerator ExecuteCoroutine(List<Command> commands)
     {
-        ObstacleMap.LoadMap();
+        mapBuilder.BuildMap();
         TreasureMap.LoadMap();
-        player.SetPosition(0, 0);
         player.SetLook(1, 0);
         for (int i = 0; i < commands.Count; i++)
         {
