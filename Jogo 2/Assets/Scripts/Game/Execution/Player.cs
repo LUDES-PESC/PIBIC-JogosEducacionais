@@ -28,6 +28,8 @@ public class Player : MonoBehaviour {
     public void Walk()
     {
         isWaiting = false;
+        if (FindObjectOfType<GroundMap>().IsBorderTile(position + lookDirection))
+            return;
         if(ObstacleMap.ObstacleIn(position + lookDirection) == null)
         {
             position += lookDirection;

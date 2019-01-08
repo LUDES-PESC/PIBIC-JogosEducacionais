@@ -13,4 +13,9 @@ public class GroundMap : MonoBehaviour {
     {
         return map.GetTile(position) == sandTile;
     }
+    public bool IsBorderTile(Vector2Int position)
+    {
+        var p = new Vector3Int(position.x, position.y, 0);
+        return map.GetTile(p) == waterTile;
+    }
 }

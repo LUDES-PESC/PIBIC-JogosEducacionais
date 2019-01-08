@@ -19,4 +19,13 @@ public class ObstacleMap : MonoBehaviour {
             return obstacles[position];
         return null;
     }
+    public static void FixDictionary()
+    {
+        List<Obstacle> list = new List<Obstacle>();
+        foreach (var e in ObstacleMap.obstacles)
+            list.Add(e.Value);
+        ResetMap();
+        foreach (var e in list)
+            obstacles.Add(e.position, e);
+    }
 }

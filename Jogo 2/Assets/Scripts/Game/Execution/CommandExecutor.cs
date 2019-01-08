@@ -38,6 +38,13 @@ public class CommandExecutor : MonoBehaviour {
 
             foreach (var e in ObstacleMap.obstacles)
                 e.Value.TurnUpdate();
+
+            ObstacleMap.FixDictionary();
+            SwapBarrelForRaft();
         }
+    }
+    private void SwapBarrelForRaft()
+    {
+        //Procura no dicionario por barris na agua. deleta e cria uma jangada no lugar
     }
 }

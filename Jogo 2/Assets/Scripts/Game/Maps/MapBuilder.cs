@@ -24,6 +24,7 @@ public class MapBuilder : MonoBehaviour {
         LevelMap levelMap = LoadMap(0);
         CommandExecutor.executor.player.SetPosition((int)levelMap.initialPosition.x, (int)levelMap.initialPosition.y);
         DrawFloor(groundTile, levelMap.ground);
+        DrawFloor(waterTile, levelMap.borders);
         CreateObstacle(horizontalBarrel, levelMap.horizonalBarrel);
         CreateObstacle(verticalBarrel, levelMap.verticalBarrel);
         CreateObstacle(woodenBox, levelMap.woodenBox);
@@ -72,8 +73,29 @@ public class MapBuilder : MonoBehaviour {
         lMap.ground.Add(new Vector2(3, 1));
         lMap.ground.Add(new Vector2(3, 2));
         lMap.ground.Add(new Vector2(3, 3));
+        lMap.borders.Add(new Vector2(-1, 0));
+        lMap.borders.Add(new Vector2(-1, 1));
+        lMap.borders.Add(new Vector2(-1, 2));
+        lMap.borders.Add(new Vector2(-1, 3));
+        lMap.borders.Add(new Vector2(-1, -1));
+        lMap.borders.Add(new Vector2(0, -1));
+        lMap.borders.Add(new Vector2(1, -1));
+        lMap.borders.Add(new Vector2(2, -1));
+        lMap.borders.Add(new Vector2(3, -1));
+        lMap.borders.Add(new Vector2(-1, 4));
+        lMap.borders.Add(new Vector2(0, 4));
+        lMap.borders.Add(new Vector2(1, 4));
+        lMap.borders.Add(new Vector2(2, 4));
+        lMap.borders.Add(new Vector2(3, 4));
+        lMap.borders.Add(new Vector2(4, 4));
+        lMap.borders.Add(new Vector2(4, 0));
+        lMap.borders.Add(new Vector2(4, 1));
+        lMap.borders.Add(new Vector2(4, 2));
+        lMap.borders.Add(new Vector2(4, 3));
+        lMap.borders.Add(new Vector2(4, -1));
         lMap.horizonalBarrel.Add(new Vector2(1, 1));
         lMap.woodenBox.Add(new Vector2(1, 0));
+        lMap.verticalRaft.Add(new Vector2(2, 3));
         return lMap;
     }
 }

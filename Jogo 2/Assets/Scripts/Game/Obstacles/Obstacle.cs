@@ -18,8 +18,6 @@ public abstract class Obstacle : MonoBehaviour {
         {
             position = target;
             transform.DOMove(new Vector3(target.x, target.y, 0) + new Vector3(0.5f, 0.5f, 0) * Globals.TILE_SIZE, Globals.TIME_BETWEEN_TURNS);
-            ObstacleMap.obstacles.Remove(target - direction);
-            ObstacleMap.obstacles.Add(target, this);
             return true;
         }
         else

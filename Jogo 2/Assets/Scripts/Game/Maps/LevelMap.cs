@@ -6,6 +6,7 @@ using UnityEngine;
 public class LevelMap {
     public string levelName;
     public Vector2 initialPosition;
+    public List<Vector2> borders = new List<Vector2>();
     public List<Vector2> ground = new List<Vector2>();
     public List<Vector2> woodenBox = new List<Vector2>();
     public List<Vector2> verticalBarrel = new List<Vector2>();
