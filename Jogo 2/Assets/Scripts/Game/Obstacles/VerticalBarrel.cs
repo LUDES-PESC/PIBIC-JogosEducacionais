@@ -16,4 +16,11 @@ public class VerticalBarrel : Obstacle, IBulletTarget
     {
         ConsoleLine.WriteLine(name + " WAS TOUCHED BY BULLET");
     }
+    public override void TurnUpdate()
+    {
+        if (!FindObjectOfType<GroundMap>().IsSandTile(position))
+        {
+            CommandExecutor.AddBarrelOnWater(true, position);
+        }
+    }
 }

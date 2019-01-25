@@ -293,15 +293,18 @@ MonoBehaviour:
   obstacleRoot: {fileID: 2075604710}
   waterTile: {fileID: 11400000, guid: 684a9e788a88d1045a8c4d5217b5f599, type: 2}
   groundTile: {fileID: 11400000, guid: 650e43e297e02e446a38ae3db982895e, type: 2}
+  verticalRaft: {fileID: 1821088404742106, guid: c8e493584dce11f41bebfc5485e10137,
+    type: 2}
+  horizontalRaft: {fileID: 1821088404742106, guid: 6721249e4665b3147955ea56469d290e,
+    type: 2}
   horizontalBarrel: {fileID: 1988373918953990, guid: d37d2a2c0da7eb640b5c22fc547bd64c,
     type: 2}
   verticalBarrel: {fileID: 1723039826939208, guid: 06b8bc15cce95ab4a878f3054d895bed,
     type: 2}
   woodenBox: {fileID: 1886748242339612, guid: 261e505c900881043bdb826f8ee45be6, type: 2}
   cannon: {fileID: 0}
-  verticalRaft: {fileID: 1821088404742106, guid: c8e493584dce11f41bebfc5485e10137,
-    type: 2}
-  horizontalRaft: {fileID: 0}
+  levels:
+  - {fileID: 4900000, guid: cf0043cf548523740b360fe45514391e, type: 3}
 --- !u!114 &90165551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6180,8 +6183,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 575292949}
   m_HandleRect: {fileID: 575292948}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.99999994
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7886,7 +7889,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00000044850353, y: 0.000015258789}
+  m_AnchoredPosition: {x: 0.00000044850353, y: -0.000045776367}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1959226610

@@ -10,12 +10,14 @@ public class MapBuilder : MonoBehaviour {
     [SerializeField] private TileBase waterTile;
     [SerializeField] private TileBase groundTile;
     [Header("Prefabs")]
+    public GameObject verticalRaft;
+    public GameObject horizontalRaft;
     [SerializeField] private GameObject horizontalBarrel;
     [SerializeField] private GameObject verticalBarrel;
     [SerializeField] private GameObject woodenBox;
     [SerializeField] private GameObject cannon;
-    [SerializeField] private GameObject verticalRaft;
-    [SerializeField] private GameObject horizontalRaft;
+    [Header("LevelMaps")]
+    [SerializeField] private List<TextAsset> levels;
 
     public void BuildMap()
     {
@@ -39,7 +41,7 @@ public class MapBuilder : MonoBehaviour {
             map.SetTile(p, tile);
         }
     }
-    private void CreateObstacle(GameObject objectPrefab, List<Vector2> positions)
+    public void CreateObstacle(GameObject objectPrefab, List<Vector2> positions)
     {
         foreach (var pos in positions)
         {
@@ -59,43 +61,6 @@ public class MapBuilder : MonoBehaviour {
     }
     private LevelMap LoadMap(int index)
     {
-        var lMap = new LevelMap();
-        lMap.initialPosition = new Vector2(0, 3);
-        lMap.ground.Add(new Vector2(0, 0));
-        lMap.ground.Add(new Vector2(0, 1));
-        lMap.ground.Add(new Vector2(0, 2));
-        lMap.ground.Add(new Vector2(0, 3));
-        lMap.ground.Add(new Vector2(1, 0));
-        lMap.ground.Add(new Vector2(1, 1));
-        lMap.ground.Add(new Vector2(1, 2));
-        lMap.ground.Add(new Vector2(1, 3));
-        lMap.ground.Add(new Vector2(3, 0));
-        lMap.ground.Add(new Vector2(3, 1));
-        lMap.ground.Add(new Vector2(3, 2));
-        lMap.ground.Add(new Vector2(3, 3));
-        lMap.borders.Add(new Vector2(-1, 0));
-        lMap.borders.Add(new Vector2(-1, 1));
-        lMap.borders.Add(new Vector2(-1, 2));
-        lMap.borders.Add(new Vector2(-1, 3));
-        lMap.borders.Add(new Vector2(-1, -1));
-        lMap.borders.Add(new Vector2(0, -1));
-        lMap.borders.Add(new Vector2(1, -1));
-        lMap.borders.Add(new Vector2(2, -1));
-        lMap.borders.Add(new Vector2(3, -1));
-        lMap.borders.Add(new Vector2(-1, 4));
-        lMap.borders.Add(new Vector2(0, 4));
-        lMap.borders.Add(new Vector2(1, 4));
-        lMap.borders.Add(new Vector2(2, 4));
-        lMap.borders.Add(new Vector2(3, 4));
-        lMap.borders.Add(new Vector2(4, 4));
-        lMap.borders.Add(new Vector2(4, 0));
-        lMap.borders.Add(new Vector2(4, 1));
-        lMap.borders.Add(new Vector2(4, 2));
-        lMap.borders.Add(new Vector2(4, 3));
-        lMap.borders.Add(new Vector2(4, -1));
-        lMap.horizonalBarrel.Add(new Vector2(1, 1));
-        lMap.woodenBox.Add(new Vector2(1, 0));
-        lMap.verticalRaft.Add(new Vector2(2, 3));
-        return lMap;
+        return JsonUtility.FromJson<LevelMap>(levels[index].text);
     }
 }

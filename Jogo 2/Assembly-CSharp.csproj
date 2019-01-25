@@ -79,6 +79,8 @@
     <Compile Include="Assets\Scripts\Game\Maps\ObstacleMap.cs" />
     <Compile Include="Assets\Scripts\Game\Maps\Treasure.cs" />
     <Compile Include="Assets\Scripts\Game\Maps\TreasureMap.cs" />
+    <Compile Include="Assets\Scripts\Game\Menu\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\Game\Menu\PirateShip.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\Bullet.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\HorizontalBarrel.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\HorizontalRaft.cs" />
@@ -123,6 +125,7 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\Levels\level_0.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/pedro/Documents/GitHub/PIBIC-JogosEducacionais/Jogo 2/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

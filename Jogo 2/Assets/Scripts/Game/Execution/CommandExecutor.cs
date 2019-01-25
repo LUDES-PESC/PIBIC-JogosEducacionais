@@ -12,6 +12,9 @@ public class CommandExecutor : MonoBehaviour {
     
     public GroundType[,] groundMap = new GroundType[MAP_SIZE, MAP_SIZE];
 
+    private static List<Vector2> horizontalBarrelsOnWater;
+    private static List<Vector2> verticalBarrelsOnWater;
+
     private void Start()
     {
         executor = this;
@@ -29,6 +32,9 @@ public class CommandExecutor : MonoBehaviour {
         player.SetLook(1, 0);
         for (int i = 0; i < commands.Count; i++)
         {
+            horizontalBarrelsOnWater = new List<Vector2>();
+            verticalBarrelsOnWater = new List<Vector2>();
+
             yield return new WaitForSeconds(Globals.TIME_BETWEEN_TURNS);
 
             foreach (var e in ObstacleMap.obstacles)
@@ -43,8 +49,32 @@ public class CommandExecutor : MonoBehaviour {
             SwapBarrelForRaft();
         }
     }
+    public static void AddBarrelOnWater(bool vertical, Vector2 position)
+    {
+        if (vertical)
+            verticalBarrelsOnWater.Add(position);
+        else
+            horizontalBarrelsOnWater.Add(position);
+    }
     private void SwapBarrelForRaft()
     {
-        //Procura no dicionario por barris na agua. deleta e cria uma jangada no lugar
+        var mapBuilder = FindObjectOfType<MapBuilder>();
+
+        foreach (var o in horizontalBarrelsOnWater)
+        {
+            GameObject obj = ObstacleMap.ObstacleIn(new Vector2Int((int)o.x, (int)o.y)).gameObject;
+            ObstacleMap.obstacles.Remove(new Vector2Int((int)o.x, (int)o.y));
+            Destroy(obj);
+        }
+        foreach (var o in verticalBarrelsOnWater)
+        {
+            GameObject obj = ObstacleMap.ObstacleIn(new Vector2Int((int)o.x, (int)o.y)).gameObject;
+            ObstacleMap.obstacles.Remove(new Vector2Int((int)o.x, (int)o.y));
+            Destroy(obj);
+        }
+
+        mapBuilder.CreateObstacle(mapBuilder.horizontalRaft, horizontalBarrelsOnWater);
+        mapBuilder.CreateObstacle(mapBuilder.verticalRaft, verticalBarrelsOnWater);
+        //ObstacleMap.FixDictionary();
     }
 }

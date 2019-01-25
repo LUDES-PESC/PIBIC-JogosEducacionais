@@ -13,6 +13,10 @@ public class GroundMap : MonoBehaviour {
     {
         return map.GetTile(position) == sandTile;
     }
+    public bool IsSandTile(Vector2Int position)
+    {
+        return map.GetTile(new Vector3Int(position.x, position.y, 0)) == sandTile;
+    }
     public bool IsBorderTile(Vector2Int position)
     {
         var p = new Vector3Int(position.x, position.y, 0);
