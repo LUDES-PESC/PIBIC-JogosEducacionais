@@ -23,7 +23,7 @@ public class MapBuilder : MonoBehaviour {
     {
         Clear();
         ObstacleMap.ResetMap();
-        LevelMap levelMap = LoadMap(0);
+        LevelMap levelMap = LoadMap(MemoryCard.GetSelectedLevel());
         CommandExecutor.executor.player.SetPosition((int)levelMap.initialPosition.x, (int)levelMap.initialPosition.y);
         DrawFloor(groundTile, levelMap.ground);
         DrawFloor(waterTile, levelMap.borders);

@@ -79,8 +79,6 @@
     <Compile Include="Assets\Scripts\Game\Maps\ObstacleMap.cs" />
     <Compile Include="Assets\Scripts\Game\Maps\Treasure.cs" />
     <Compile Include="Assets\Scripts\Game\Maps\TreasureMap.cs" />
-    <Compile Include="Assets\Scripts\Game\Menu\CameraFollow.cs" />
-    <Compile Include="Assets\Scripts\Game\Menu\PirateShip.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\Bullet.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\HorizontalBarrel.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\HorizontalRaft.cs" />
@@ -93,6 +91,7 @@
     <Compile Include="Assets\Scripts\Game\Obstacles\VerticalRaft.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\WoodenBox.cs" />
     <Compile Include="Assets\Scripts\Game\PlayerAnimation.cs" />
+    <Compile Include="Assets\Scripts\Game\SaveAndLoad\MemoryCard.cs" />
     <Compile Include="Assets\Scripts\Game\UI\AddCommandPanel.cs" />
     <Compile Include="Assets\Scripts\Game\UI\Command\Command.cs" />
     <Compile Include="Assets\Scripts\Game\UI\Command\DigCommand.cs" />
@@ -107,6 +106,13 @@
     <Compile Include="Assets\Scripts\Game\UI\CommandSelectionManager.cs" />
     <Compile Include="Assets\Scripts\Globals.cs" />
     <Compile Include="Assets\Scripts\System\Console\ConsoleLine.cs" />
+    <Compile Include="Assets\Scripts\System\Menu\CreditsScreen.cs" />
+    <Compile Include="Assets\Scripts\System\Menu\LevelButton.cs" />
+    <Compile Include="Assets\Scripts\System\Menu\LevelSelectionScreen.cs" />
+    <Compile Include="Assets\Scripts\System\Menu\LoadingScreen.cs" />
+    <Compile Include="Assets\Scripts\System\Menu\MainScreen.cs" />
+    <Compile Include="Assets\Scripts\System\Menu\MenuManager.cs" />
+    <Compile Include="Assets\Scripts\System\Menu\Screen.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

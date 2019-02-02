@@ -305,6 +305,7 @@ MonoBehaviour:
   cannon: {fileID: 0}
   levels:
   - {fileID: 4900000, guid: cf0043cf548523740b360fe45514391e, type: 3}
+  - {fileID: 4900000, guid: cf0043cf548523740b360fe45514391e, type: 3}
 --- !u!114 &90165551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6184,7 +6185,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 575292948}
   m_Direction: 2
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
