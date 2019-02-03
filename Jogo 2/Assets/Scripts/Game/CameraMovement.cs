@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
  
 public class CameraMovement : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class CameraMovement : MonoBehaviour
     private void Update()
     {
         DragCamera();
+        ZoomInAndOut();
     }
     private void DragCamera()
     {
@@ -28,5 +30,16 @@ public class CameraMovement : MonoBehaviour
 
         }
         lastMousePosition = currentMousePosition;
+    }
+    private void ZoomInAndOut()
+    {
+        if(Input.mouseScrollDelta.y > 0)
+        {
+            Camera.main.DOOrthoSize(Camera.main.orthographicSize - 0.5f, 0.2f);
+        }
+        if (Input.mouseScrollDelta.y < 0)
+        {
+            Camera.main.DOOrthoSize(Camera.main.orthographicSize + 0.5f, 0.2f);
+        }
     }
 }
