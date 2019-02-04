@@ -105,6 +105,7 @@
     <Compile Include="Assets\Scripts\Game\UI\Command\WalkCommand.cs" />
     <Compile Include="Assets\Scripts\Game\UI\CommandPanel.cs" />
     <Compile Include="Assets\Scripts\Game\UI\CommandSelectionManager.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\MapOpener.cs" />
     <Compile Include="Assets\Scripts\Globals.cs" />
     <Compile Include="Assets\Scripts\System\Console\ConsoleLine.cs" />
     <Compile Include="Assets\Scripts\System\Menu\BackgroundMovement.cs" />
