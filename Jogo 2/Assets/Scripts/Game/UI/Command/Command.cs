@@ -36,6 +36,10 @@ IPointerExitHandler
         selected = false;
         GetComponent<Image>().color = Color.white;
     }
+    public void SetErrorColor()
+    {
+        GetComponent<Image>().color = Color.red;
+    }
     public void OnBeginDrag(PointerEventData eventData)
     {
         CommandSelectionManager.BeginSelectionMove(this);

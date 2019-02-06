@@ -10,7 +10,7 @@ public class MapOpener : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     private const float CLOSED_X = -18f;
     private const float ARROW_OPENED_ROTATION = 180;
     private const float ARROW_CLOSED_ROTATION = 0;
-    private const float DURATION = 0.5f;
+    private const float DURATION = 0.25f;
 
     [SerializeField] private RectTransform arrow;
     private bool opened;

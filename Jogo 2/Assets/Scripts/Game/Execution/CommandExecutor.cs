@@ -7,6 +7,8 @@ public class CommandExecutor : MonoBehaviour {
     private const int MAP_SIZE = 4;
 
     public static CommandExecutor executor;
+    public static int currentLine = 0;
+
     public Player player;
     public MapBuilder mapBuilder;
     
@@ -27,11 +29,17 @@ public class CommandExecutor : MonoBehaviour {
     }
     private IEnumerator ExecuteCoroutine(List<Command> commands)
     {
+        ErrorHandling.ResetError();
         mapBuilder.BuildMap();
         TreasureMap.LoadMap();
         player.SetLook(1, 0);
-        for (int i = 0; i < commands.Count; i++)
+        for (currentLine = 0; currentLine < commands.Count; currentLine++)
         {
+            if (ErrorHandling.errors.Count > 0)
+            {
+                FindObjectOfType<CommandPanel>().SetErrorLine(ErrorHandling.errors[0].commandLine);
+                yield break;
+            }
             horizontalBarrelsOnWater = new List<Vector2>();
             verticalBarrelsOnWater = new List<Vector2>();
 
@@ -40,7 +48,7 @@ public class CommandExecutor : MonoBehaviour {
             foreach (var e in ObstacleMap.obstacles)
                 e.Value.TurnStart();
 
-            commands[i].Execute(player);
+            commands[currentLine].Execute(player);
 
             foreach (var e in ObstacleMap.obstacles)
                 e.Value.TurnUpdate();

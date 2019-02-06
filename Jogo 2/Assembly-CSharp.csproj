@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Game\CommandType.cs" />
     <Compile Include="Assets\Scripts\Game\ElementType.cs" />
     <Compile Include="Assets\Scripts\Game\Execution\CommandExecutor.cs" />
+    <Compile Include="Assets\Scripts\Game\Execution\ErrorHandling.cs" />
     <Compile Include="Assets\Scripts\Game\Execution\Player.cs" />
     <Compile Include="Assets\Scripts\Game\GroundType.cs" />
     <Compile Include="Assets\Scripts\Game\Maps\GroundMap.cs" />

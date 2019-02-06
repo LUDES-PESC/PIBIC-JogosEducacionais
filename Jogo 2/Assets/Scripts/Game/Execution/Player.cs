@@ -32,9 +32,17 @@ public class Player : MonoBehaviour {
             return;
         if(ObstacleMap.ObstacleIn(position + lookDirection) == null)
         {
-            position += lookDirection;
-            var targetPosition = new Vector3(position.x, position.y, 0);
-            transform.DOMove(targetPosition + new Vector3(0.5f, 0.5f, 0) * Globals.TILE_SIZE, Globals.TIME_BETWEEN_TURNS);
+            if(FindObjectOfType<GroundMap>().IsSandTile(position + lookDirection))
+            {
+                position += lookDirection;
+                var targetPosition = new Vector3(position.x, position.y, 0);
+                transform.DOMove(targetPosition + new Vector3(0.5f, 0.5f, 0) * Globals.TILE_SIZE, Globals.TIME_BETWEEN_TURNS);
+            }
+            else
+            {
+                ErrorHandling.AddError(new Error(CommandExecutor.currentLine, "WALKING ON WATER"));
+                print("ERROR: WALKING ON WATER");
+            }
         }
         else
         {
@@ -46,7 +54,8 @@ public class Player : MonoBehaviour {
             }
             else
             {
-                ConsoleLine.WriteLine("ERROR: PUSHING OBSTACLE");
+                ErrorHandling.AddError(new Error(CommandExecutor.currentLine, "PUSHING OBSTACLE"));
+                print("ERROR: PUSHING OBSTACLE");
             }
         }
     }
@@ -102,8 +111,8 @@ public class Player : MonoBehaviour {
         }
         else
         {
-            ConsoleLine.WriteLine("DIDN'T FOUND ANYTHING IN " + position);
+            ErrorHandling.AddError(new Error(CommandExecutor.currentLine, "DIGGING IN WRONG PLACE"));
+            print("ERROR: DIGGING IN WRONG PLACE");
         }
     }
 }
-

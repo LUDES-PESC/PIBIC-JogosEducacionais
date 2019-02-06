@@ -24,6 +24,10 @@ public class CommandPanel : MonoBehaviour {
             DeleteCommandsOnList(list);
         }
     }
+    public void SetErrorLine(int index)
+    {
+        commands[index].SetErrorColor();
+    }
     private void DeleteCommandsOnList(List<Command> cmdList){
         cmdList.Sort(delegate(Command x, Command y){
             return x.index.CompareTo(y.index);
