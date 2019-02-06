@@ -6,8 +6,8 @@ using DG.Tweening;
 
 public class MapOpener : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private const float OPENED_X = -820;
-    private const float CLOSED_X = -52.5f;
+    private const float OPENED_X = -761;
+    private const float CLOSED_X = -18f;
     private const float ARROW_OPENED_ROTATION = 180;
     private const float ARROW_CLOSED_ROTATION = 0;
     private const float DURATION = 0.5f;
