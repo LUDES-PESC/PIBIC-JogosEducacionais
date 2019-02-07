@@ -184,8 +184,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "CR\xC9DITOS"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cef7b5bc345d9ba4a903e39030cbad8f, type: 2}
-  m_sharedMaterial: {fileID: 21903492622947334, guid: cef7b5bc345d9ba4a903e39030cbad8f,
+  m_fontAsset: {fileID: 11400000, guid: 4ec562c26d0f59f4a85f55d5a319362f, type: 2}
+  m_sharedMaterial: {fileID: 21857364672413540, guid: 4ec562c26d0f59f4a85f55d5a319362f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -730,8 +730,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: JOGAR
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cef7b5bc345d9ba4a903e39030cbad8f, type: 2}
-  m_sharedMaterial: {fileID: 21903492622947334, guid: cef7b5bc345d9ba4a903e39030cbad8f,
+  m_fontAsset: {fileID: 11400000, guid: 4ec562c26d0f59f4a85f55d5a319362f, type: 2}
+  m_sharedMaterial: {fileID: 21857364672413540, guid: 4ec562c26d0f59f4a85f55d5a319362f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

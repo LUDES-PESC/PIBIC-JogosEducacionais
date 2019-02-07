@@ -4,9 +4,14 @@ using DG.Tweening;
  
 public class CameraMovement : MonoBehaviour
 {
-    public Vector3 lastMousePosition;
-    public Vector3 currentMousePosition;
-    public Vector3 delta;
+    private Vector3 lastMousePosition;
+    private Vector3 currentMousePosition;
+    private Vector3 delta;
+
+    [SerializeField] private float minZoom;
+    [SerializeField] private float maxZoom;
+    private const float zoomTaxOnButton = 1f;
+    private const float zoomTaxOnMouseScroll = 0.5f;
 
     private void Update()
     {
@@ -25,21 +30,30 @@ public class CameraMovement : MonoBehaviour
             delta = Camera.main.ScreenToWorldPoint(currentMousePosition) - Camera.main.ScreenToWorldPoint(lastMousePosition);
             delta.z = 0;
             transform.position -= delta;
-        }if (Input.GetMouseButtonUp(0))
-        {
-
         }
         lastMousePosition = currentMousePosition;
     }
     private void ZoomInAndOut()
     {
         if(Input.mouseScrollDelta.y > 0)
-        {
-            Camera.main.DOOrthoSize(Camera.main.orthographicSize - 0.5f, 0.2f);
-        }
+            ZoomInOnScroll();
         if (Input.mouseScrollDelta.y < 0)
-        {
-            Camera.main.DOOrthoSize(Camera.main.orthographicSize + 0.5f, 0.2f);
-        }
+            ZoomOutOnScroll();
+    }
+    private void ZoomInOnScroll()
+    {
+        Camera.main.DOOrthoSize(Mathf.Clamp(Camera.main.orthographicSize - zoomTaxOnMouseScroll, minZoom, maxZoom), 0.2f);
+    }
+    private void ZoomOutOnScroll()
+    {
+        Camera.main.DOOrthoSize(Mathf.Clamp(Camera.main.orthographicSize + zoomTaxOnMouseScroll, minZoom, maxZoom), 0.2f);
+    }
+    public void ZoomInOnButton()
+    {
+        Camera.main.DOOrthoSize(Mathf.Clamp(Camera.main.orthographicSize - zoomTaxOnButton, minZoom, maxZoom), 0.2f);
+    }
+    public void ZoomOutOnButton()
+    {
+        Camera.main.DOOrthoSize(Mathf.Clamp(Camera.main.orthographicSize + zoomTaxOnButton, minZoom, maxZoom), 0.2f);
     }
 }

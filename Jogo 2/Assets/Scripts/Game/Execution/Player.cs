@@ -25,6 +25,12 @@ public class Player : MonoBehaviour {
         lookDirection.y = y;
         GetComponent<PlayerAnimation>().ChangeAnimation(lookDirection);
     }
+    public void Move()
+    {
+        position += lookDirection;
+        var targetPosition = new Vector3(position.x, position.y, 0);
+        transform.DOMove(targetPosition + new Vector3(0.5f, 0.5f, 0) * Globals.TILE_SIZE, Globals.TIME_BETWEEN_TURNS);
+    }
     public void Walk()
     {
         isWaiting = false;

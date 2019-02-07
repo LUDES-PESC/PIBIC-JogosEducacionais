@@ -13,7 +13,7 @@ public class HorizontalRaft : Obstacle{
             {
                 Move(direction);
                 CommandExecutor.executor.player.Look(direction);
-                CommandExecutor.executor.player.Walk();
+                CommandExecutor.executor.player.Move();
             }
         }
     }
