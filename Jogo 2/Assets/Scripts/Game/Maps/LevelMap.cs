@@ -8,6 +8,7 @@ public class LevelMap {
     private static string baseName = "/level_";
 
     public string levelName;
+    public int maxSteps;
     public Vector2 initialPosition;
     public List<Vector2> borders = new List<Vector2>();
     public List<Vector2> ground = new List<Vector2>();
@@ -22,6 +23,7 @@ public class LevelMap {
     public static LevelMap LoadLevel(int index)
     {
         string path = Application.persistentDataPath + baseName + index.ToString() + ".txt";
+        Debug.Log(path);
         return JsonUtility.FromJson<LevelMap>(File.ReadAllText(path));
     }
     public void SaveLevel(int index)

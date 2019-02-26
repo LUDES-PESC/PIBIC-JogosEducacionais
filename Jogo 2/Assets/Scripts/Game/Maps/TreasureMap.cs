@@ -21,4 +21,21 @@ public class TreasureMap : MonoBehaviour {
             return treasures[position];
         return null;
     }
+    public static TreasureInfo GetTreasureInfo()
+    {
+        TreasureInfo ti = new TreasureInfo();
+        foreach(Treasure t in treasures.Values)
+        {
+            if (t.bigTreasure)
+                ti.bigTreasure = t;
+            else
+                ti.littleTreasures.Add(t);
+        }
+        return ti;
+    }
+}
+public class TreasureInfo
+{
+    public Treasure bigTreasure;
+    public List<Treasure> littleTreasures = new List<Treasure>();
 }

@@ -59,7 +59,7 @@ public class MapBuilder : MonoBehaviour {
             Destroy(obstacleRoot.GetChild(i).gameObject);
         }
     }
-    private LevelMap LoadMap(int index)
+    public LevelMap LoadMap(int index)
     {
         return JsonUtility.FromJson<LevelMap>(levels[index].text);
     }

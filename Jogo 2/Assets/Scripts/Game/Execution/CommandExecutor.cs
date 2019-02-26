@@ -11,7 +11,7 @@ public class CommandExecutor : MonoBehaviour {
 
     public Player player;
     public MapBuilder mapBuilder;
-    
+    public TreasureInventory inventory;
     public GroundType[,] groundMap = new GroundType[MAP_SIZE, MAP_SIZE];
 
     private static List<Vector2> horizontalBarrelsOnWater;
@@ -22,6 +22,9 @@ public class CommandExecutor : MonoBehaviour {
         executor = this;
         mapBuilder.BuildMap();
         player.SetLook(1, 0);
+
+        TreasureMap.LoadMap();
+        inventory.InitializeTreasureIndicator();
     }
     public void Execute(List<Command> commands)
     {
@@ -32,14 +35,10 @@ public class CommandExecutor : MonoBehaviour {
         ErrorHandling.ResetError();
         mapBuilder.BuildMap();
         TreasureMap.LoadMap();
+        inventory.Reset();
         player.SetLook(1, 0);
         for (currentLine = 0; currentLine < commands.Count; currentLine++)
         {
-            if (ErrorHandling.errors.Count > 0)
-            {
-                FindObjectOfType<CommandPanel>().SetErrorLine(ErrorHandling.errors[0].commandLine);
-                yield break;
-            }
             horizontalBarrelsOnWater = new List<Vector2>();
             verticalBarrelsOnWater = new List<Vector2>();
 
@@ -55,6 +54,19 @@ public class CommandExecutor : MonoBehaviour {
 
             ObstacleMap.FixDictionary();
             SwapBarrelForRaft();
+
+            if (ErrorHandling.errors.Count > 0)
+            {
+                FindObjectOfType<CommandPanel>().SetErrorLine(ErrorHandling.errors[0].commandLine);
+                yield break;
+            }
+        }
+        if (inventory.GetResult().bigTreasure)
+        {
+            Result r = inventory.GetResult();
+            r.steps = commands.Count;
+            r.maxSteps = LevelMap.LoadLevel(MemoryCard.GetSelectedLevel()).maxSteps;
+            FindObjectOfType<EndPanel>().OpenPanel(r);
         }
     }
     public static void AddBarrelOnWater(bool vertical, Vector2 position)
@@ -83,6 +95,5 @@ public class CommandExecutor : MonoBehaviour {
 
         mapBuilder.CreateObstacle(mapBuilder.horizontalRaft, horizontalBarrelsOnWater);
         mapBuilder.CreateObstacle(mapBuilder.verticalRaft, verticalBarrelsOnWater);
-        //ObstacleMap.FixDictionary();
     }
 }

@@ -106,7 +106,10 @@
     <Compile Include="Assets\Scripts\Game\UI\Command\WalkCommand.cs" />
     <Compile Include="Assets\Scripts\Game\UI\CommandPanel.cs" />
     <Compile Include="Assets\Scripts\Game\UI\CommandSelectionManager.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\EndPanel.cs" />
     <Compile Include="Assets\Scripts\Game\UI\MapOpener.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\TreasureInventory.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\TreasureUI.cs" />
     <Compile Include="Assets\Scripts\Globals.cs" />
     <Compile Include="Assets\Scripts\System\Console\ConsoleLine.cs" />
     <Compile Include="Assets\Scripts\System\Menu\BackgroundMovement.cs" />
@@ -117,6 +120,7 @@
     <Compile Include="Assets\Scripts\System\Menu\MainScreen.cs" />
     <Compile Include="Assets\Scripts\System\Menu\MenuManager.cs" />
     <Compile Include="Assets\Scripts\System\Menu\Screen.cs" />
+    <None Include="Assets\Levels\level_1.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
@@ -136,6 +140,7 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\Levels\level_0.txt" />
+    <None Include="Assets\Levels\level_2.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/pedro/Documents/GitHub/PIBIC-JogosEducacionais/Jogo 2/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
