@@ -17,8 +17,9 @@ public class EndPanel : MonoBehaviour {
         StartCoroutine(OpenPanelAnimation(info));
     }
     public IEnumerator OpenPanelAnimation(Result info){
-        background.DOFade(0.5f, 0.25f);
+        background.DOFade(0.5f, 1f);
         background.raycastTarget = true;
+        yield return new WaitForSeconds(2f);
         box.DOAnchorPosY(360, 0.25f);
         sections[0].DOAnchorPosX(-1000f, 0);
         sections[1].DOAnchorPosX(-1000f, 0);
