@@ -6,9 +6,12 @@ using UnityEngine.Tilemaps;
 public class MapBuilder : MonoBehaviour {
     [SerializeField] private Tilemap map;
     [SerializeField] private Transform obstacleRoot;
+    [SerializeField] private Transform treasureRoot;
+
     [Header("Tiles")]
     [SerializeField] private TileBase waterTile;
     [SerializeField] private TileBase groundTile;
+
     [Header("Prefabs")]
     public GameObject verticalRaft;
     public GameObject horizontalRaft;
@@ -16,8 +19,11 @@ public class MapBuilder : MonoBehaviour {
     [SerializeField] private GameObject verticalBarrel;
     [SerializeField] private GameObject woodenBox;
     [SerializeField] private GameObject cannon;
+    [SerializeField] private GameObject bigTreasure;
+    [SerializeField] private GameObject smallTreasure;
+
     [Header("LevelMaps")]
-    [SerializeField] private List<TextAsset> levels;
+    [SerializeField] public List<LevelData> levels;
 
     public void BuildMap()
     {
@@ -27,11 +33,14 @@ public class MapBuilder : MonoBehaviour {
         CommandExecutor.executor.player.SetPosition((int)levelMap.initialPosition.x, (int)levelMap.initialPosition.y);
         DrawFloor(groundTile, levelMap.ground);
         DrawFloor(waterTile, levelMap.borders);
+
         CreateObstacle(horizontalBarrel, levelMap.horizonalBarrel);
         CreateObstacle(verticalBarrel, levelMap.verticalBarrel);
         CreateObstacle(woodenBox, levelMap.woodenBox);
         CreateObstacle(verticalRaft, levelMap.verticalRaft);
         CreateObstacle(horizontalRaft, levelMap.horizontalRaft);
+
+        CreateTreasures();
     }
     private void DrawFloor(TileBase tile, List<Vector2> positions)
     {
@@ -51,6 +60,19 @@ public class MapBuilder : MonoBehaviour {
             ObstacleMap.AddObstacle(obstacle);
         }
     }
+    public void CreateTreasures()
+    {
+        LevelMap levelMap = LoadMap(MemoryCard.GetSelectedLevel());
+        var bigT = Instantiate(bigTreasure, treasureRoot);
+        bigT.transform.position = new Vector3(levelMap.bigTreasure.x, levelMap.bigTreasure.y, 0) * Globals.TILE_SIZE + new Vector3(0.5f, 0.5f, 0f);
+        bigT.GetComponent<Treasure>().GetPosition();
+        foreach (var pos in levelMap.treasures)
+        {
+            var smallT = Instantiate(smallTreasure, treasureRoot);
+            smallT.transform.position = new Vector3(pos.x, pos.y, 0) * Globals.TILE_SIZE + new Vector3(0.5f, 0.5f, 0f);
+            smallT.GetComponent<Treasure>().GetPosition();
+        }
+    }
     private void Clear()
     {
         map.ClearAllTiles();
@@ -58,9 +80,14 @@ public class MapBuilder : MonoBehaviour {
         {
             Destroy(obstacleRoot.GetChild(i).gameObject);
         }
+        for (int i = treasureRoot.childCount - 1; i >= 0; i--)
+        {
+            Destroy(treasureRoot.GetChild(i).gameObject);
+            print("DESTROY T");
+        }
     }
     public LevelMap LoadMap(int index)
     {
-        return JsonUtility.FromJson<LevelMap>(levels[index].text);
+        return levels[index].map;
     }
 }

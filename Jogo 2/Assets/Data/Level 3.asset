@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43f08e4d85effd48bbf24db7f038aa1, type: 3}
+  m_Name: Level 3
+  m_EditorClassIdentifier: 
+  title: "Cuidado com o canh\xE3o!"
+  thumbnail: {fileID: 21300000, guid: 3e6f0fafa78597d4094a85fe01dec9df, type: 3}
+  map:
+    initialPosition: {x: 0, y: 0}
+    borders: []
+    ground: []
+    woodenBox: []
+    verticalBarrel: []
+    horizonalBarrel: []
+    verticalRaft: []
+    horizontalRaft: []
+    treasures: []
+    bigTreasure: {x: 0, y: 0}
+  maxSteps: 8

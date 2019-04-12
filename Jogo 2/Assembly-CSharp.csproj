@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\Game\Obstacles\VerticalRaft.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\WoodenBox.cs" />
     <Compile Include="Assets\Scripts\Game\PlayerAnimation.cs" />
+    <Compile Include="Assets\Scripts\Game\SaveAndLoad\LevelData.cs" />
     <Compile Include="Assets\Scripts\Game\SaveAndLoad\MemoryCard.cs" />
     <Compile Include="Assets\Scripts\Game\UI\AddCommandPanel.cs" />
     <Compile Include="Assets\Scripts\Game\UI\Command\Command.cs" />

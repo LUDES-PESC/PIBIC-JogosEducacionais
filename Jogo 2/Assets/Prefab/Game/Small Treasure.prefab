@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212706280148640846}
   - component: {fileID: 114729944811786106}
   m_Layer: 0
-  m_Name: Treasure
+  m_Name: Small Treasure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,7 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e1511ade53b2e4db416afc01797a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bigTreature: 0
+  bigTreasure: 0
+  found: 0
   position: {x: 0, y: 0}
 --- !u!212 &212706280148640846
 SpriteRenderer:

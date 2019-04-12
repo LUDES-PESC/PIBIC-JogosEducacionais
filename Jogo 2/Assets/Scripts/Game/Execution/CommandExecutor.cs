@@ -34,6 +34,7 @@ public class CommandExecutor : MonoBehaviour {
     {
         ErrorHandling.ResetError();
         mapBuilder.BuildMap();
+        yield return null;
         TreasureMap.LoadMap();
         inventory.Reset();
         player.SetLook(1, 0);
@@ -65,7 +66,7 @@ public class CommandExecutor : MonoBehaviour {
         {
             Result r = inventory.GetResult();
             r.steps = commands.Count;
-            r.maxSteps = LevelMap.LoadLevel(MemoryCard.GetSelectedLevel()).maxSteps;
+            r.maxSteps = FindObjectOfType<MapBuilder>().levels[MemoryCard.GetSelectedLevel()].maxSteps;
             FindObjectOfType<EndPanel>().OpenPanel(r);
         }
     }

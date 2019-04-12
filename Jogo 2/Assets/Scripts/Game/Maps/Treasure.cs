@@ -7,7 +7,7 @@ public class Treasure : MonoBehaviour {
     public bool found;
     public Vector2Int position;
 
-    public void Start()
+    public void GetPosition()
     {
         position = new Vector2Int((int)(transform.position.x - 0.5f), (int)(transform.position.y - 0.5f));
     }

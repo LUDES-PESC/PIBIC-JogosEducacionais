@@ -3,21 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class MemoryCard : MonoBehaviour {
-    private static string baseName = "/data_";
-    private static string selectedLevelName = "SELECTEDLEVEL.txt";
+[System.Serializable]
+public class MemoryCard {
+    private static string baseName = "/data.txt";
 
+    public int selectedLevel = 0;
+    public List<LevelProgress> levels = new List<LevelProgress>();
+
+    public static MemoryCard Load()
+    {
+        string path = Application.persistentDataPath + baseName;
+        CreateFileIfDontExist(path, JsonUtility.ToJson(new MemoryCard()));
+        string content = File.ReadAllText(path);
+        return JsonUtility.FromJson<MemoryCard>(content);
+    }
+    public void Save()
+    {
+        string path = Application.persistentDataPath + baseName;
+        string content = JsonUtility.ToJson(this);
+        CreateFileIfDontExist(path, content);
+        File.WriteAllText(path, content);
+    }
     public static int GetSelectedLevel()
     {
-        string path = Application.persistentDataPath + baseName + selectedLevelName;
-        return JsonUtility.FromJson<SelectedLevel>(File.ReadAllText(path)).selectedLevel;
+        return Load().selectedLevel;
     }
     public static void SetSelectedLevel(int index)
     {
-        string path = Application.persistentDataPath + baseName + selectedLevelName;
-        string content = JsonUtility.ToJson(new SelectedLevel(index));
-        CreateFileIfDontExist(path, content);
-        File.WriteAllText(path, content);
+        var memoryCard = Load();
+        memoryCard.selectedLevel = index;
+        memoryCard.Save();
     }
     public static void CreateFileIfDontExist(string path, string content)
     {
@@ -27,12 +42,11 @@ public class MemoryCard : MonoBehaviour {
             File.WriteAllText(path, content);
         }
     }
-    class SelectedLevel
-    {
-        public int selectedLevel;
-        public SelectedLevel(int level)
-        {
-            selectedLevel = level;
-        }
-    }
+}
+[System.Serializable]
+public class LevelProgress
+{
+    public bool bigTreasure;
+    public int treasures = 0;
+    public int steps = 100;
 }

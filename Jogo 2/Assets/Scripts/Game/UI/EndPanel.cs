@@ -29,10 +29,23 @@ public class EndPanel : MonoBehaviour {
         sections[0].DOAnchorPosX(0, 0.25f);
         yield return new WaitForSeconds(0.25f);
         sections[1].DOAnchorPosX(0, 0.35f);
+        Save(info);
     }
     public void Continue()
     {
         MemoryCard.SetSelectedLevel(MemoryCard.GetSelectedLevel() + 1);
         LoadingScreen.LoadScreen("SampleScene");
+    }
+    private void Save(Result info)
+    {
+        var memory = MemoryCard.Load();
+        if (!memory.levels[MemoryCard.GetSelectedLevel()].bigTreasure)
+            memory.levels.Add(new LevelProgress());
+        memory.levels[MemoryCard.GetSelectedLevel()].bigTreasure = info.bigTreasure;
+        memory.levels[MemoryCard.GetSelectedLevel()].steps = info.steps < memory.levels[MemoryCard.GetSelectedLevel()].steps ?
+            info.steps : memory.levels[MemoryCard.GetSelectedLevel()].steps;
+        memory.levels[MemoryCard.GetSelectedLevel()].treasures = info.littleTreasures > memory.levels[MemoryCard.GetSelectedLevel()].treasures ?
+            info.littleTreasures : memory.levels[MemoryCard.GetSelectedLevel()].treasures;
+        memory.Save();
     }
 }
