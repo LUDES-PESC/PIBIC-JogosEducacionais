@@ -9,11 +9,9 @@ public class TreasureMap : MonoBehaviour {
     {
         treasures = new Dictionary<Vector2Int, Treasure>();
         var tr = FindObjectsOfType<Treasure>();
-        Debug.Log(tr.Length);
         foreach (Treasure t in tr)
         {
             t.ResetState();
-            Debug.Log("Add " + t.name +" at " + t.position.x + "/" + t.position.y);
             treasures.Add(t.position, t);
         }
     }

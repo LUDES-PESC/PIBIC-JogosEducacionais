@@ -80,13 +80,13 @@ public class Player : MonoBehaviour {
             var obstacle = ObstacleMap.ObstacleIn(bulletPosition);
             if (obstacle != null && obstacle.GetComponent<IBulletTarget>() != null)
             {
-                ConsoleLine.WriteLine("Bullet Start at <" + position.x + "," + position.y +
+                print("Bullet Start at <" + position.x + "," + position.y +
                     "> until reaches <" + bulletPosition.x + "," + bulletPosition.y + ">");
                 break;
             }
         }
         var bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        StartCoroutine(bullet.GetComponent<Bullet>().Shoot(position, bulletPosition));
+        StartCoroutine(bullet.GetComponent<Bullet>().Shoot(position, bulletPosition)); //precisa virar um yield return
     }
     public void Look(Vector2Int direction)
     {

@@ -48,7 +48,7 @@ public class CommandExecutor : MonoBehaviour {
             foreach (var e in ObstacleMap.obstacles)
                 e.Value.TurnStart();
 
-            commands[currentLine].Execute(player);
+            commands[currentLine].Execute(player); //deveria ser uma corotina para o caso do tiro.
 
             foreach (var e in ObstacleMap.obstacles)
                 e.Value.TurnUpdate();
