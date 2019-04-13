@@ -12,7 +12,6 @@ public class LoadingScreen : MonoBehaviour {
     private void Start()
     {
         me = this;
-        me.Hide(0);
     }
     public static void LoadScreen(string name)
     {

@@ -2,23 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
 public class AddCommandPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler{
+    private const float OPENED_POS = 520;
+    private const float CLOSED_POS = 250;
+    private const float DURATION = 0.25f;
 
     private bool opened = false;
     private bool mouseInside = false;
 
-	public void OpenPanel(){
+    private void Start()
+    {
+        ClosePanel(0);
+    }
+    public void Toggle()
+    {
+        if (opened)
+            ClosePanel();
+        else
+            OpenPanel();
+    }
+    public void OpenPanel(float duration = DURATION)
+    {
 		var group = GetComponent<CanvasGroup>();
-		group.alpha = 1;
+        group.DOFade(1, duration);
+        group.GetComponent<RectTransform>().DOAnchorPosX(OPENED_POS, duration);
 		group.interactable = true;
         group.blocksRaycasts = true;
         opened = true;
 	}
-	public void ClosePanel(){
+	public void ClosePanel(float duration = DURATION){
 		var group = GetComponent<CanvasGroup>();
-		group.alpha = 0;
-		group.interactable = false;
+        group.DOFade(0, duration);
+        group.GetComponent<RectTransform>().DOAnchorPosX(CLOSED_POS, duration);
+        group.interactable = false;
 		group.blocksRaycasts = false;
         opened = false;
 	}
@@ -51,11 +69,13 @@ public class AddCommandPanel : MonoBehaviour, IPointerEnterHandler, IPointerExit
                 break;
         }
     }
+    /*
     private void Update(){
         if(opened && !mouseInside && (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))){
             ClosePanel();
         }
     }
+    */
     public void OnPointerEnter(PointerEventData eventData){mouseInside = true;}
     public void OnPointerExit(PointerEventData eventData){mouseInside = false;}
 }

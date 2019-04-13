@@ -13,6 +13,8 @@ public class CameraMovement : MonoBehaviour
     private const float zoomTaxOnButton = 1f;
     private const float zoomTaxOnMouseScroll = 0.5f;
 
+    private bool startedDrag;
+
     private void Update()
     {
         DragCamera();
@@ -20,11 +22,15 @@ public class CameraMovement : MonoBehaviour
     }
     private void DragCamera()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (CommandPanel.mouseInside)
+            startedDrag = false;
+        if (Input.GetMouseButtonDown(0) && !CommandPanel.mouseInside)
         {
             lastMousePosition = Input.mousePosition;
+            startedDrag = true;
             return;
-        }if (Input.GetMouseButton(0))
+        }
+        if (Input.GetMouseButton(0) && startedDrag)
         {
             currentMousePosition = Input.mousePosition;
             delta = Camera.main.ScreenToWorldPoint(currentMousePosition) - Camera.main.ScreenToWorldPoint(lastMousePosition);

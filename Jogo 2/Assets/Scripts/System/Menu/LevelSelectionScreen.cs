@@ -31,10 +31,11 @@ public class LevelSelectionScreen : Screen {
         {
             var go = Instantiate(levelButtonPrefab, buttonRoot);
             go.GetComponent<LevelButton>().SetData(data.levels[i], memory.levels[i], i);
-            go.transform.localScale = new Vector3(0, 0, 0);
-            go.transform.DOScale(1, 0.25f);
-            yield return new WaitForSeconds(0.1f);
+            //go.transform.localScale = new Vector3(0, 0, 0);
+            //go.transform.DOScale(1, 0.25f);
+            //yield return new WaitForSeconds(0.1f);
         }
+        yield return null;
     }
     private int LastUnlockedLevel(List<LevelProgress> progress)
     {

@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class CommandPanel : MonoBehaviour {
+public class CommandPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+{
+    public static bool mouseInside;
+
     [SerializeField] public List<Command> commands;
     [SerializeField] private GameObject commandPrefab;
     [SerializeField] private Transform commandRoot;
@@ -106,4 +110,6 @@ public class CommandPanel : MonoBehaviour {
         }
         ResetCommands();
     }
+    public void OnPointerEnter(PointerEventData eventData) { mouseInside = true; }
+    public void OnPointerExit(PointerEventData eventData) { mouseInside = false; }
 }

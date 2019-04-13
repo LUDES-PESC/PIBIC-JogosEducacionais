@@ -25,8 +25,8 @@ public abstract class Obstacle : MonoBehaviour {
             return false;
         }
     }
-    public virtual void TurnStart() { }
-    public virtual void TurnUpdate() { }
+    public virtual IEnumerator TurnStart() { yield return null; }
+    public virtual IEnumerator TurnUpdate() { yield return null; }
     public virtual bool OnPush(Vector2Int direction) { return false; }
     public virtual void OnPlayerEnter() { }
     public virtual void OnPlayerStay() { }

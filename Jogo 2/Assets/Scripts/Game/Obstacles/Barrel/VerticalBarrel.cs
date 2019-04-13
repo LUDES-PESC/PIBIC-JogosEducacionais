@@ -22,11 +22,12 @@ public class VerticalBarrel : Obstacle, ICannonBulletTarget, IBulletTarget
     {
         yield return null;
     }
-    public override void TurnUpdate()
+    public override IEnumerator TurnUpdate()
     {
         if (!FindObjectOfType<GroundMap>().IsSandTile(position))
         {
             CommandExecutor.AddBarrelOnWater(true, position);
         }
+        yield return null;
     }
 }

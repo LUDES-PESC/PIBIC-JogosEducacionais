@@ -9,8 +9,15 @@ public class MenuManager : MonoBehaviour {
 
     private void Start()
     {
+        StartCoroutine(LoadingOnMenu());
+    }
+    private IEnumerator LoadingOnMenu()
+    {
+        LoadingScreen.me.Show(0);
+        yield return new WaitForSeconds(1f);
+        LoadingScreen.me.Hide();
         currentScreen = firstScreen;
-        foreach(Screen s in screens)
+        foreach (Screen s in screens)
             s.Hide(0);
         screens[currentScreen].Show(0);
     }

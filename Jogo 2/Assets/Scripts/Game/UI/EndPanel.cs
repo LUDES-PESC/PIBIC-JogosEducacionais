@@ -33,8 +33,9 @@ public class EndPanel : MonoBehaviour {
     }
     public void Continue()
     {
-        MemoryCard.SetSelectedLevel(MemoryCard.GetSelectedLevel() + 1);
-        LoadingScreen.LoadScreen("SampleScene");
+        LoadingScreen.LoadScreen("MainMenu");
+        //MemoryCard.SetSelectedLevel(MemoryCard.GetSelectedLevel() + 1);
+        LoadingScreen.LoadScreen("MainMenu");
     }
     private void Save(Result info)
     {

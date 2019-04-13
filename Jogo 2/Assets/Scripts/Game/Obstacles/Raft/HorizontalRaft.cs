@@ -5,17 +5,19 @@ using UnityEngine;
 public class HorizontalRaft : Obstacle{
     public Vector2Int direction = Vector2Int.right;
 
-    public override void TurnUpdate()
+    public override IEnumerator TurnUpdate()
     {
         if (CanMoveForward())
         {
             if (CommandExecutor.executor.player.isWaiting && position == CommandExecutor.executor.player.position)
             {
                 Move(direction);
-                CommandExecutor.executor.player.Look(direction);
-                CommandExecutor.executor.player.Move();
+                yield return CommandExecutor.executor.player.Look(direction);
+                yield return CommandExecutor.executor.player.Move();
             }
         }
+        else
+            yield return null;
     }
     public bool CanMoveForward()
     {

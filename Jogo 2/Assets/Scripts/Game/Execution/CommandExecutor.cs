@@ -25,6 +25,9 @@ public class CommandExecutor : MonoBehaviour {
 
         TreasureMap.LoadMap();
         inventory.InitializeTreasureIndicator();
+
+        LoadingScreen.me.Show(0);
+        LoadingScreen.me.Hide();
     }
     public void Execute(List<Command> commands)
     {
@@ -46,12 +49,12 @@ public class CommandExecutor : MonoBehaviour {
             yield return new WaitForSeconds(Globals.TIME_BETWEEN_TURNS);
 
             foreach (var e in ObstacleMap.obstacles)
-                e.Value.TurnStart();
+                yield return e.Value.TurnStart();
 
             yield return commands[currentLine].Execute(player);
 
             foreach (var e in ObstacleMap.obstacles)
-                e.Value.TurnUpdate();
+                yield return e.Value.TurnUpdate();
 
             ObstacleMap.FixDictionary();
             SwapBarrelForRaft();
