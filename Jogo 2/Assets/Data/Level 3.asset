@@ -11,17 +11,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43f08e4d85effd48bbf24db7f038aa1, type: 3}
   m_Name: Level 3
   m_EditorClassIdentifier: 
-  title: "Cuidado com o canh\xE3o!"
-  thumbnail: {fileID: 21300000, guid: 3e6f0fafa78597d4094a85fe01dec9df, type: 3}
+  title: "Canh\xF5es: ao ataque!"
+  thumbnail: {fileID: 21300000, guid: 55cdb656bd0777d459e16f8307fefe09, type: 3}
   map:
-    initialPosition: {x: 0, y: 0}
-    borders: []
-    ground: []
-    woodenBox: []
+    initialPosition: {x: 1, y: 1}
+    borders:
+    - {x: 2, y: 1}
+    - {x: 2, y: 0}
+    - {x: 2, y: -1}
+    - {x: -2, y: 1}
+    - {x: -2, y: 0}
+    - {x: -2, y: -1}
+    - {x: -1, y: 2}
+    - {x: 0, y: 2}
+    - {x: 1, y: 2}
+    - {x: -1, y: -2}
+    - {x: 0, y: -2}
+    - {x: 1, y: -2}
+    - {x: 2, y: 2}
+    - {x: 2, y: -2}
+    - {x: -2, y: 2}
+    - {x: -2, y: -2}
+    ground:
+    - {x: -1, y: 1}
+    - {x: 0, y: 1}
+    - {x: 1, y: 1}
+    - {x: 1, y: 0}
+    - {x: -1, y: -1}
+    - {x: 1, y: -1}
+    woodenBox:
+    - {x: 1, y: -1}
     verticalBarrel: []
     horizonalBarrel: []
     verticalRaft: []
     horizontalRaft: []
+    upCannon: []
+    downCannon: []
+    leftCannon: []
+    rightCannon:
+    - {x: -1, y: -1}
     treasures: []
-    bigTreasure: {x: 0, y: 0}
-  maxSteps: 8
+    bigTreasure: {x: 1, y: -1}
+  maxSteps: 12

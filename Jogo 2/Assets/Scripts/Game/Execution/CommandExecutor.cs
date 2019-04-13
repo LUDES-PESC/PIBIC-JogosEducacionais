@@ -48,7 +48,7 @@ public class CommandExecutor : MonoBehaviour {
             foreach (var e in ObstacleMap.obstacles)
                 e.Value.TurnStart();
 
-            commands[currentLine].Execute(player); //deveria ser uma corotina para o caso do tiro.
+            yield return commands[currentLine].Execute(player);
 
             foreach (var e in ObstacleMap.obstacles)
                 e.Value.TurnUpdate();
@@ -66,7 +66,7 @@ public class CommandExecutor : MonoBehaviour {
         {
             Result r = inventory.GetResult();
             r.steps = commands.Count;
-            r.maxSteps = FindObjectOfType<MapBuilder>().levels[MemoryCard.GetSelectedLevel()].maxSteps;
+            r.maxSteps = FindObjectOfType<MapBuilder>().levels.levels[MemoryCard.GetSelectedLevel()].maxSteps;
             FindObjectOfType<EndPanel>().OpenPanel(r);
         }
     }

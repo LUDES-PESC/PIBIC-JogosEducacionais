@@ -11,17 +11,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43f08e4d85effd48bbf24db7f038aa1, type: 3}
   m_Name: Level 4
   m_EditorClassIdentifier: 
-  title: Ilha dos barris
-  thumbnail: {fileID: 21300000, guid: 385de692298da404fa3c2a38ede3f4eb, type: 3}
+  title: Nova
+  thumbnail: {fileID: 21300000, guid: 55cdb656bd0777d459e16f8307fefe09, type: 3}
   map:
-    initialPosition: {x: 0, y: 0}
-    borders: []
-    ground: []
+    initialPosition: {x: -1, y: 2}
+    borders:
+    - {x: -2, y: 3}
+    - {x: -1, y: 3}
+    - {x: 0, y: 3}
+    - {x: 1, y: 3}
+    - {x: 2, y: 3}
+    - {x: 3, y: 3}
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    ground:
+    - {x: -1, y: -1}
+    - {x: 0, y: -1}
+    - {x: 0, y: 0}
+    - {x: 2, y: -1}
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    - {x: 2, y: 0}
+    - {x: -1, y: 1}
+    - {x: 0, y: 1}
+    - {x: 0, y: 0}
+    - {x: 2, y: 1}
+    - {x: -1, y: 2}
+    - {x: 0, y: 2}
+    - {x: 0, y: 0}
+    - {x: 2, y: 2}
     woodenBox: []
+    pointyRocks:
+    - {x: 2, y: 2}
+    - {x: -1, y: 1}
+    - {x: 0, y: 1}
+    - {x: 2, y: 0}
+    - {x: 0, y: -1}
     verticalBarrel: []
     horizonalBarrel: []
-    verticalRaft: []
+    verticalRaft:
+    - {x: 1, y: 2}
     horizontalRaft: []
-    treasures: []
-    bigTreasure: {x: 0, y: 0}
-  maxSteps: 8
+    upCannon: []
+    downCannon: []
+    leftCannon: []
+    rightCannon: []
+    treasures:
+    - {x: 2, y: -1}
+    bigTreasure: {x: -1, y: 0}
+  maxSteps: 12

@@ -84,8 +84,10 @@
     <Compile Include="Assets\Scripts\Game\Obstacles\Barrel\HorizontalBarrel.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\Barrel\VerticalBarrel.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\Bullet.cs" />
-    <Compile Include="Assets\Scripts\Game\Obstacles\Cannon\UpCannon.cs" />
+    <Compile Include="Assets\Scripts\Game\Obstacles\Cannon\Cannon.cs" />
+    <Compile Include="Assets\Scripts\Game\Obstacles\Cannon\CannonBullet.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\IBulletTarget.cs" />
+    <Compile Include="Assets\Scripts\Game\Obstacles\ICannonBulletTarget.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\IMovable.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\ITurnBased.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\Obstacle.cs" />
@@ -114,6 +116,7 @@
     <Compile Include="Assets\Scripts\Game\UI\TreasureUI.cs" />
     <Compile Include="Assets\Scripts\Globals.cs" />
     <Compile Include="Assets\Scripts\System\Console\ConsoleLine.cs" />
+    <Compile Include="Assets\Scripts\System\LevelList.cs" />
     <Compile Include="Assets\Scripts\System\Menu\BackgroundMovement.cs" />
     <Compile Include="Assets\Scripts\System\Menu\CreditsScreen.cs" />
     <Compile Include="Assets\Scripts\System\Menu\LevelButton.cs" />

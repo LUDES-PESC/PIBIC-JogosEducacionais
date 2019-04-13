@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -12,7 +13,7 @@ IPointerExitHandler
     public int index;
     public Type type;
 
-    public abstract void Execute(Player player);
+    public abstract IEnumerator Execute(Player player);
 
     public virtual void InitializeCommand(int index, string name = null, Type type = null)
     {

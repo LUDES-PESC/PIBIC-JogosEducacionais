@@ -12,8 +12,10 @@ public class Bullet : MonoBehaviour {
         transform.DOMove(i, 0);
         transform.DOMove(f, Globals.TIME_BETWEEN_TURNS).SetEase(Ease.Linear);
         yield return new WaitForSeconds(Globals.TIME_BETWEEN_TURNS);
-        if(ObstacleMap.ObstacleIn(target) != null && ObstacleMap.ObstacleIn(target).GetComponent<IBulletTarget>() != null)
-            ObstacleMap.ObstacleIn(target).GetComponent<IBulletTarget>().OnBulletTouch();
+        if (ObstacleMap.ObstacleIn(target) != null && ObstacleMap.ObstacleIn(target).GetComponent<IBulletTarget>() != null)
+        {
+            yield return ObstacleMap.ObstacleIn(target).GetComponent<IBulletTarget>().OnBulletTouch();
+        }
         Destroy(this.gameObject);
     }
 }

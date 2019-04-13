@@ -18,12 +18,13 @@ public class MapBuilder : MonoBehaviour {
     [SerializeField] private GameObject horizontalBarrel;
     [SerializeField] private GameObject verticalBarrel;
     [SerializeField] private GameObject woodenBox;
+    [SerializeField] private GameObject pointyRocks;
     [SerializeField] private GameObject cannon;
     [SerializeField] private GameObject bigTreasure;
     [SerializeField] private GameObject smallTreasure;
 
     [Header("LevelMaps")]
-    [SerializeField] public List<LevelData> levels;
+    [SerializeField] public LevelList levels;
 
     public void BuildMap()
     {
@@ -37,8 +38,14 @@ public class MapBuilder : MonoBehaviour {
         CreateObstacle(horizontalBarrel, levelMap.horizonalBarrel);
         CreateObstacle(verticalBarrel, levelMap.verticalBarrel);
         CreateObstacle(woodenBox, levelMap.woodenBox);
+        CreateObstacle(pointyRocks, levelMap.pointyRocks);
         CreateObstacle(verticalRaft, levelMap.verticalRaft);
         CreateObstacle(horizontalRaft, levelMap.horizontalRaft);
+
+        CreateCannon(levelMap.upCannon, CannonType.UP);
+        CreateCannon(levelMap.downCannon, CannonType.DOWN);
+        CreateCannon(levelMap.leftCannon, CannonType.LEFT);
+        CreateCannon(levelMap.rightCannon, CannonType.RIGHT);
 
         CreateTreasures();
     }
@@ -57,6 +64,17 @@ public class MapBuilder : MonoBehaviour {
             var obstacle = Instantiate(objectPrefab, obstacleRoot).GetComponent<Obstacle>();
             obstacle.transform.position = new Vector3(pos.x, pos.y, 0) * Globals.TILE_SIZE + new Vector3(0.5f, 0.5f, 0f);
             obstacle.GetPosition();
+            ObstacleMap.AddObstacle(obstacle);
+        }
+    }
+    public void CreateCannon(List<Vector2> positions, CannonType type)
+    {
+        foreach (var pos in positions)
+        {
+            var obstacle = Instantiate(cannon, obstacleRoot).GetComponent<Obstacle>();
+            obstacle.transform.position = new Vector3(pos.x, pos.y, 0) * Globals.TILE_SIZE + new Vector3(0.5f, 0.5f, 0f);
+            obstacle.GetPosition();
+            obstacle.gameObject.GetComponent<Cannon>().SetType(type);
             ObstacleMap.AddObstacle(obstacle);
         }
     }
@@ -88,6 +106,6 @@ public class MapBuilder : MonoBehaviour {
     }
     public LevelMap LoadMap(int index)
     {
-        return levels[index].map;
+        return levels.levels[index].map;
     }
 }

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class WaitCommand : Command
 {
-    public override void Execute(Player player)
+    public override IEnumerator Execute(Player player)
     {
-        player.Wait();
+        yield return player.Wait();
     }
     public override void InitializeCommand(int index, string name = null, System.Type type = null)
     {

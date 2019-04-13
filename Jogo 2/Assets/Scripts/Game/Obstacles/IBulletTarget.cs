@@ -1,4 +1,6 @@
-﻿public interface IBulletTarget
+﻿using System.Collections;
+
+public interface IBulletTarget
 {
-    void OnBulletTouch();
+    IEnumerator OnBulletTouch();
 }

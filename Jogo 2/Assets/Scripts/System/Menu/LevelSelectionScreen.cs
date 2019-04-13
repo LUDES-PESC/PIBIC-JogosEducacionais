@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 
 public class LevelSelectionScreen : Screen {
-    [SerializeField] private List<LevelData> data;
+    [SerializeField] private LevelList data;
     [SerializeField] private Transform buttonRoot;
     [SerializeField] private GameObject levelButtonPrefab;
 
@@ -30,7 +30,7 @@ public class LevelSelectionScreen : Screen {
         for (int i = LastUnlockedLevel(memory.levels)-1; i >= 0; i--)
         {
             var go = Instantiate(levelButtonPrefab, buttonRoot);
-            go.GetComponent<LevelButton>().SetData(data[i], memory.levels[i], i);
+            go.GetComponent<LevelButton>().SetData(data.levels[i], memory.levels[i], i);
             go.transform.localScale = new Vector3(0, 0, 0);
             go.transform.DOScale(1, 0.25f);
             yield return new WaitForSeconds(0.1f);
@@ -38,6 +38,6 @@ public class LevelSelectionScreen : Screen {
     }
     private int LastUnlockedLevel(List<LevelProgress> progress)
     {
-        return Mathf.Clamp(progress.Count, 1, data.Count);
+        return Mathf.Clamp(progress.Count, 1, data.levels.Count);
     }
 }

@@ -31,11 +31,11 @@ public class Player : MonoBehaviour {
         var targetPosition = new Vector3(position.x, position.y, 0);
         transform.DOMove(targetPosition + new Vector3(0.5f, 0.5f, 0) * Globals.TILE_SIZE, Globals.TIME_BETWEEN_TURNS);
     }
-    public void Walk()
+    public IEnumerator Walk()
     {
         isWaiting = false;
         if (FindObjectOfType<GroundMap>().IsBorderTile(position + lookDirection))
-            return;
+            yield return null;
         if(ObstacleMap.ObstacleIn(position + lookDirection) == null)
         {
             if(FindObjectOfType<GroundMap>().IsSandTile(position + lookDirection))
@@ -65,12 +65,13 @@ public class Player : MonoBehaviour {
             }
         }
     }
-    public void Wait()
+    public IEnumerator Wait()
     {
         ConsoleLine.WriteLine("WAIT");
         isWaiting = true;
+        yield return null;
     }
-    public void Shoot()
+    public IEnumerator Shoot()
     {
         isWaiting = false;
         Vector2Int bulletPosition = position;
@@ -86,13 +87,14 @@ public class Player : MonoBehaviour {
             }
         }
         var bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        StartCoroutine(bullet.GetComponent<Bullet>().Shoot(position, bulletPosition)); //precisa virar um yield return
+        yield return bullet.GetComponent<Bullet>().Shoot(position, bulletPosition);
     }
-    public void Look(Vector2Int direction)
+    public IEnumerator Look(Vector2Int direction)
     {
         isWaiting = false;
         lookDirection = direction;
         GetComponent<PlayerAnimation>().ChangeAnimation(direction);
+        yield return null;
     }
     public void RiseFlag()
     {
@@ -105,7 +107,7 @@ public class Player : MonoBehaviour {
         print(this.position + "/" + position);
         return this.position == position;
     }
-    public void Dig()
+    public IEnumerator Dig()
     {
         ConsoleLine.WriteLine("DIG: " + position);
         GetComponent<PlayerAnimation>().DigAnimation();
@@ -120,5 +122,6 @@ public class Player : MonoBehaviour {
             ErrorHandling.AddError(new Error(CommandExecutor.currentLine, "DIGGING IN WRONG PLACE"));
             print("ERROR: DIGGING IN WRONG PLACE");
         }
+        yield return null;
     }
 }

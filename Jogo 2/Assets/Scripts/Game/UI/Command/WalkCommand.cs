@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class WalkCommand : Command
 {
-    public override void Execute(Player player)
+    public override IEnumerator Execute(Player player)
     {
-        player.Walk();
+        yield return player.Walk();
     }
     public override void InitializeCommand(int index, string name = null, System.Type type = null)
     {

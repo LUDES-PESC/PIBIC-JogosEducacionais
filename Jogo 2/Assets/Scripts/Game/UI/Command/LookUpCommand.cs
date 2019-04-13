@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class LookUpCommand : Command
 {
-    public override void Execute(Player player)
+    public override IEnumerator Execute(Player player)
     {
-        player.Look(Vector2Int.up);
+        yield return player.Look(Vector2Int.up);
     }
     public override void InitializeCommand(int index, string name = null, System.Type type = null)
     {

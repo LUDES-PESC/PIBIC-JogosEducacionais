@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PointyRocks : Obstacle, IBulletTarget {
-    public void OnBulletTouch()
+public class PointyRocks : Obstacle, IBulletTarget, ICannonBulletTarget {
+    public IEnumerator OnBulletTouch()
     {
-        //NADA
+        yield return null;
+    }
+    public IEnumerator OnCannonBulletTouch()
+    {
+        yield return null;
     }
 }

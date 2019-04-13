@@ -9,6 +9,10 @@ public class ObstacleMap : MonoBehaviour {
     {
         obstacles.Add(obstacle.position, obstacle);
     }
+    public static void RemoveObstacle(Obstacle obstacle)
+    {
+        obstacles.Remove(obstacle.position);
+    }
     public static void ResetMap()
     {
         obstacles = new Dictionary<Vector2Int, Obstacle>();

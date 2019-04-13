@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VerticalBarrel : Obstacle, IBulletTarget
+public class VerticalBarrel : Obstacle, ICannonBulletTarget, IBulletTarget
 {
     public override bool OnPush(Vector2Int direction)
     {
@@ -12,9 +12,15 @@ public class VerticalBarrel : Obstacle, IBulletTarget
         }
         return false;
     }
-    public void OnBulletTouch()
+    public IEnumerator OnCannonBulletTouch()
     {
-        ConsoleLine.WriteLine(name + " WAS TOUCHED BY BULLET");
+        ObstacleMap.RemoveObstacle(this);
+        yield return null;
+        Destroy(this.gameObject);
+    }
+    public IEnumerator OnBulletTouch()
+    {
+        yield return null;
     }
     public override void TurnUpdate()
     {

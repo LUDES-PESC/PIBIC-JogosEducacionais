@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DigCommand : Command {
 
-    public override void Execute(Player player)
+    public override IEnumerator Execute(Player player)
     {
-        player.Dig();
+        yield return player.Dig();
     }
     public override void InitializeCommand(int index, string name = null, System.Type type = null)
     {

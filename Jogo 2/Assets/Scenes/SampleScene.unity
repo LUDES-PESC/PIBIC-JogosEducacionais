@@ -340,17 +340,14 @@ MonoBehaviour:
   verticalBarrel: {fileID: 1723039826939208, guid: 06b8bc15cce95ab4a878f3054d895bed,
     type: 2}
   woodenBox: {fileID: 1886748242339612, guid: 261e505c900881043bdb826f8ee45be6, type: 2}
-  cannon: {fileID: 0}
+  pointyRocks: {fileID: 1704057321146158, guid: f1fba44156228db44bee46e0c281c283,
+    type: 2}
+  cannon: {fileID: 1033520137146662, guid: 08154e45abaff574b9fe8a5ac4719869, type: 2}
   bigTreasure: {fileID: 1982229431037084, guid: a21876b0913c4d94b80d9eac990b2541,
     type: 2}
   smallTreasure: {fileID: 1939019581672504, guid: 3fff0a497afbe51468b2fdf0f8896f93,
     type: 2}
-  levels:
-  - {fileID: 11400000, guid: abac64784f152bf44b89e4085b1ff001, type: 2}
-  - {fileID: 11400000, guid: 67478d35828b30543ac9de433de0890c, type: 2}
-  - {fileID: 11400000, guid: 2c5c8e325762bf141aa4a1524a9ee265, type: 2}
-  - {fileID: 11400000, guid: 54ce0a01203e06c419eafd4297bac181, type: 2}
-  - {fileID: 11400000, guid: 6c0f602aa34e6fb46a3012b25fafdc81, type: 2}
+  levels: {fileID: 11400000, guid: 43fabded8d25ed24fbdb6fb48764ff11, type: 2}
 --- !u!114 &90165551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7146,8 +7143,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 575292949}
   m_HandleRect: {fileID: 575292948}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.9999999
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7427,7 +7424,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 752839554}
   m_Direction: 0
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10181,7 +10178,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00000044850353, y: 0.000015258789}
+  m_AnchoredPosition: {x: 0.00000044850353, y: -0.000015258789}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1959226610

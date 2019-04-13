@@ -2,10 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WoodenBox : Obstacle, IBulletTarget
+public class WoodenBox : Obstacle, ICannonBulletTarget, IBulletTarget
 {
-    public void OnBulletTouch()
+    public IEnumerator OnBulletTouch()
     {
-        ConsoleLine.WriteLine(name + " WAS TOUCHED BY BULLET");
+        yield return null;
+    }
+    public IEnumerator OnCannonBulletTouch()
+    {
+        ObstacleMap.RemoveObstacle(this);
+        yield return null;
+        Destroy(this.gameObject);
     }
 }
