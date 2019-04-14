@@ -119,6 +119,7 @@
     <Compile Include="Assets\Scripts\System\LevelList.cs" />
     <Compile Include="Assets\Scripts\System\Menu\BackgroundMovement.cs" />
     <Compile Include="Assets\Scripts\System\Menu\CreditsScreen.cs" />
+    <Compile Include="Assets\Scripts\System\Menu\Effect\ScrollEffect.cs" />
     <Compile Include="Assets\Scripts\System\Menu\LevelButton.cs" />
     <Compile Include="Assets\Scripts\System\Menu\LevelSelectionScreen.cs" />
     <Compile Include="Assets\Scripts\System\Menu\LoadingScreen.cs" />

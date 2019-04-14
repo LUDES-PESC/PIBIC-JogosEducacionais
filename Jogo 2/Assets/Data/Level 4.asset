@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Level 4
   m_EditorClassIdentifier: 
   title: Ilha das pedras pontudas
-  thumbnail: {fileID: 21300000, guid: 55cdb656bd0777d459e16f8307fefe09, type: 3}
+  thumbnail: {fileID: 21300000, guid: 4def344a71406a54e9809504225a6592, type: 3}
   map:
     initialPosition: {x: -1, y: 2}
     borders:

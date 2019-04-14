@@ -4,16 +4,22 @@ using UnityEngine;
 using DG.Tweening;
 
 public class LevelSelectionScreen : Screen {
+    private const float TITLE_OPENED_X = 840;
+
     [SerializeField] private LevelList data;
     [SerializeField] private Transform buttonRoot;
     [SerializeField] private GameObject levelButtonPrefab;
+    [SerializeField] private RectTransform title;
 
     public override void OnShow()
     {
+        title.DOSizeDelta(new Vector2(0, title.sizeDelta.y), 0);
+        title.DOSizeDelta(new Vector2(TITLE_OPENED_X, title.sizeDelta.y), 0.5f);
         StartCoroutine(ShowLevelButtons());
     }
     public override void OnHide()
     {
+        title.DOSizeDelta(new Vector2(0, title.sizeDelta.y), 0.5f);
         for (int i = buttonRoot.childCount-1; i >= 0; i--)
         {
             Destroy(buttonRoot.GetChild(i).gameObject);

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Level 3
   m_EditorClassIdentifier: 
   title: "Canh\xF5es: ao ataque!"
-  thumbnail: {fileID: 21300000, guid: 55cdb656bd0777d459e16f8307fefe09, type: 3}
+  thumbnail: {fileID: 21300000, guid: 59d314da3d6913a4fa0e0f71bf73b760, type: 3}
   map:
     initialPosition: {x: 1, y: 1}
     borders:
@@ -41,6 +41,7 @@ MonoBehaviour:
     - {x: 1, y: -1}
     woodenBox:
     - {x: 1, y: -1}
+    pointyRocks: []
     verticalBarrel: []
     horizonalBarrel: []
     verticalRaft: []
