@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 
 public class LevelSelectionScreen : Screen {
-    private const float TITLE_OPENED_X = 840;
+    private const float TITLE_OPENED_X = 200;
 
     [SerializeField] private LevelList data;
     [SerializeField] private Transform buttonRoot;

@@ -32,6 +32,7 @@ public class LevelButton : MonoBehaviour {
     public void OpenLevel()
     {
         MemoryCard.SetSelectedLevel(levelIndex);
+        print("Opening Level: " + levelIndex);
         LoadingScreen.LoadScreen("SampleScene");
     }
 }

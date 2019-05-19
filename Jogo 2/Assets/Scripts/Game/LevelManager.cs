@@ -19,7 +19,6 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] private List<Color> playerColors;
 
     private void Start () {
-        MemoryCard.SetSelectedLevel(0);
         CreatePlayer();
         mapBuilder.BuildMap();
         TreasureMap.LoadMap();
