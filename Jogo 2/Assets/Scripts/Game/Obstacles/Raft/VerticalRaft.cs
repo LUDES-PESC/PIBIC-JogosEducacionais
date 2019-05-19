@@ -7,17 +7,20 @@ public class VerticalRaft : Obstacle {
 
     public override IEnumerator TurnUpdate()
     {
-        if (CanMoveForward())
+        foreach(var p in FindObjectsOfType<Player>())
         {
-            if (CommandExecutor.executor.player.isWaiting && position == CommandExecutor.executor.player.position)
+            if (CanMoveForward())
             {
-                Move(direction);
-                yield return CommandExecutor.executor.player.Look(direction);
-                yield return CommandExecutor.executor.player.Move();
+                if (p.isWaiting && position == p.position)
+                {
+                    Move(direction);
+                    yield return p.Look(direction);
+                    yield return p.Move();
+                }
             }
+            else
+                yield return null;
         }
-        else
-            yield return null;
     }
     public bool CanMoveForward()
     {

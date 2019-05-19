@@ -14,7 +14,8 @@ MonoBehaviour:
   title: Empurrando barris
   thumbnail: {fileID: 21300000, guid: 43b3fed333e40fa4ea66d372d0d39388, type: 3}
   map:
-    initialPosition: {x: -1, y: 1}
+    initialPosition:
+    - {x: 1, y: 0}
     borders:
     - {x: -2, y: -2}
     - {x: -1, y: -2}

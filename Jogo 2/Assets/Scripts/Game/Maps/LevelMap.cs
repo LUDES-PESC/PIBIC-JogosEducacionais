@@ -4,7 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class LevelMap {
-    public Vector2 initialPosition;
+    public List<Vector2> initialPosition;
     public List<Vector2> borders = new List<Vector2>();
     public List<Vector2> ground = new List<Vector2>();
     public List<Vector2> woodenBox = new List<Vector2>();

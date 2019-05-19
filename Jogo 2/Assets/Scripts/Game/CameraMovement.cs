@@ -1,30 +1,24 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using DG.Tweening;
- 
-public class CameraMovement : MonoBehaviour
-{
+
+public class CameraMovement : MonoBehaviour {
+    public static bool canBeMoved;
+    private bool startedDrag;
+
     private Vector3 lastMousePosition;
     private Vector3 currentMousePosition;
     private Vector3 delta;
 
-    [SerializeField] private float minZoom;
-    [SerializeField] private float maxZoom;
-    private const float zoomTaxOnButton = 1f;
-    private const float zoomTaxOnMouseScroll = 0.5f;
-
-    private bool startedDrag;
-
     private void Update()
     {
-        DragCamera();
-        ZoomInAndOut();
+        if(canBeMoved)
+            DragCamera();
     }
     private void DragCamera()
     {
-        if (CommandPanel.mouseInside)
-            startedDrag = false;
-        if (Input.GetMouseButtonDown(0) && !CommandPanel.mouseInside)
+        if (Input.GetMouseButtonDown(0))
         {
             lastMousePosition = Input.mousePosition;
             startedDrag = true;
@@ -39,27 +33,9 @@ public class CameraMovement : MonoBehaviour
         }
         lastMousePosition = currentMousePosition;
     }
-    private void ZoomInAndOut()
+    public static void MoveTo(Vector2 position)
     {
-        if(Input.mouseScrollDelta.y > 0)
-            ZoomInOnScroll();
-        if (Input.mouseScrollDelta.y < 0)
-            ZoomOutOnScroll();
-    }
-    private void ZoomInOnScroll()
-    {
-        Camera.main.DOOrthoSize(Mathf.Clamp(Camera.main.orthographicSize - zoomTaxOnMouseScroll, minZoom, maxZoom), 0.2f);
-    }
-    private void ZoomOutOnScroll()
-    {
-        Camera.main.DOOrthoSize(Mathf.Clamp(Camera.main.orthographicSize + zoomTaxOnMouseScroll, minZoom, maxZoom), 0.2f);
-    }
-    public void ZoomInOnButton()
-    {
-        Camera.main.DOOrthoSize(Mathf.Clamp(Camera.main.orthographicSize - zoomTaxOnButton, minZoom, maxZoom), 0.2f);
-    }
-    public void ZoomOutOnButton()
-    {
-        Camera.main.DOOrthoSize(Mathf.Clamp(Camera.main.orthographicSize + zoomTaxOnButton, minZoom, maxZoom), 0.2f);
+        var pos = (Vector3)position - Vector3.forward * 10;
+        Camera.main.transform.DOMove(pos, Globals.TIME_BETWEEN_TURNS);
     }
 }

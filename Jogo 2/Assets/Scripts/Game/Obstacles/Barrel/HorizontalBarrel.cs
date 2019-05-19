@@ -26,7 +26,7 @@ public class HorizontalBarrel : Obstacle, ICannonBulletTarget, IBulletTarget {
     {
         if (!FindObjectOfType<GroundMap>().IsSandTile(position))
         {
-            CommandExecutor.AddBarrelOnWater(false, position);
+            //CommandExecutor.AddBarrelOnWater(false, position);
         }
         yield return null;
     }

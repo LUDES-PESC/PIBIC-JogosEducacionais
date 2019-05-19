@@ -14,7 +14,6 @@ public class Treasure : MonoBehaviour {
     public void Find()
     {
         found = true;
-        FindObjectOfType<TreasureInventory>().FoundTreasure(bigTreasure);
     }
     public void ResetState()
     {

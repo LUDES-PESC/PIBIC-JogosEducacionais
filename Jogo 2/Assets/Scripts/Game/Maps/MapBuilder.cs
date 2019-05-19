@@ -7,6 +7,7 @@ public class MapBuilder : MonoBehaviour {
     [SerializeField] private Tilemap map;
     [SerializeField] private Transform obstacleRoot;
     [SerializeField] private Transform treasureRoot;
+    [SerializeField] private Transform beginningBlocksRoot;
 
     [Header("Tiles")]
     [SerializeField] private TileBase waterTile;
@@ -31,22 +32,18 @@ public class MapBuilder : MonoBehaviour {
         Clear();
         ObstacleMap.ResetMap();
         LevelMap levelMap = LoadMap(MemoryCard.GetSelectedLevel());
-        CommandExecutor.executor.player.SetPosition((int)levelMap.initialPosition.x, (int)levelMap.initialPosition.y);
         DrawFloor(groundTile, levelMap.ground);
         DrawFloor(waterTile, levelMap.borders);
-
         CreateObstacle(horizontalBarrel, levelMap.horizonalBarrel);
         CreateObstacle(verticalBarrel, levelMap.verticalBarrel);
         CreateObstacle(woodenBox, levelMap.woodenBox);
         CreateObstacle(pointyRocks, levelMap.pointyRocks);
         CreateObstacle(verticalRaft, levelMap.verticalRaft);
         CreateObstacle(horizontalRaft, levelMap.horizontalRaft);
-
         CreateCannon(levelMap.upCannon, CannonType.UP);
         CreateCannon(levelMap.downCannon, CannonType.DOWN);
         CreateCannon(levelMap.leftCannon, CannonType.LEFT);
         CreateCannon(levelMap.rightCannon, CannonType.RIGHT);
-
         CreateTreasures();
     }
     private void DrawFloor(TileBase tile, List<Vector2> positions)
@@ -101,11 +98,11 @@ public class MapBuilder : MonoBehaviour {
         for (int i = treasureRoot.childCount - 1; i >= 0; i--)
         {
             Destroy(treasureRoot.GetChild(i).gameObject);
-            print("DESTROY T");
         }
     }
-    public LevelMap LoadMap(int index)
+    public static LevelMap LoadMap(int index)
     {
-        return levels.levels[index].map;
+        var l = FindObjectOfType<MapBuilder>();
+        return l.levels.levels[index].map;
     }
 }

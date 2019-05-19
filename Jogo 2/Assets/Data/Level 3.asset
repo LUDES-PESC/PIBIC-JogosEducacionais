@@ -14,7 +14,8 @@ MonoBehaviour:
   title: "Canh\xF5es: ao ataque!"
   thumbnail: {fileID: 21300000, guid: 59d314da3d6913a4fa0e0f71bf73b760, type: 3}
   map:
-    initialPosition: {x: 1, y: 1}
+    initialPosition:
+    - {x: 1, y: 0}
     borders:
     - {x: 2, y: 1}
     - {x: 2, y: 0}
