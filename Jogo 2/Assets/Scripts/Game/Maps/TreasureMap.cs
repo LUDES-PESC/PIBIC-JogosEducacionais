@@ -33,6 +33,15 @@ public class TreasureMap : MonoBehaviour {
         }
         return ti;
     }
+    public static bool FinishLevel()
+    {
+        foreach(var t in treasures.Values)
+        {
+            if (t.bigTreasure && t.found)
+                return true;
+        }
+        return false;
+    }
 }
 public class TreasureInfo
 {

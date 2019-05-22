@@ -29,11 +29,10 @@ public class Player : MonoBehaviour
     {
         lookDirection.x = x;
         lookDirection.y = y;
-        //FindObjectOfType<PlayerAnimation>().ChangeAnimation(lookDirection);
+        FindObjectOfType<PlayerAnimation>().ChangeAnimation(lookDirection);
     }
     public IEnumerator Move()
     {
-        print(name + ":MOVE");
         position += lookDirection;
         var targetPosition = new Vector3(position.x, position.y, 0);
         transform.DOMove(targetPosition + new Vector3(0.5f, 0.5f, 0) * Globals.TILE_SIZE, Globals.TIME_BETWEEN_TURNS);
@@ -41,7 +40,6 @@ public class Player : MonoBehaviour
     }
     public IEnumerator Walk()
     {
-        print(name + ":WALK");
         isWaiting = false;
         if (FindObjectOfType<GroundMap>().IsBorderTile(position + lookDirection))
             yield return null;
@@ -77,13 +75,11 @@ public class Player : MonoBehaviour
     }
     public IEnumerator Wait()
     {
-        print(name + ":WAIT");
         isWaiting = true;
         yield return null;
     }
     public IEnumerator Shoot()
     {
-        print(name + ":SHOOT");
         isWaiting = false;
         Vector2Int bulletPosition = position;
         for (int i = 0; i < Globals.BULLET_RANGE; i++)
@@ -103,35 +99,31 @@ public class Player : MonoBehaviour
     }
     public IEnumerator Look(Vector2Int direction)
     {
-        print(name + ":LOOK");
         isWaiting = false;
         lookDirection = direction;
-        //FindObjectOfType<PlayerAnimation>().ChangeAnimation(direction);
+        FindObjectOfType<PlayerAnimation>().ChangeAnimation(direction);
         yield return null;
     }
     public IEnumerator RiseFlag()
     {
-        print(name + ":RISE FLAG");
         isWaiting = false;
         flag = true;
         yield return null;
     }
     public IEnumerator DropFlag()
     {
-        print(name + ":DROP FLAG");
         isWaiting = false;
         flag = false;
         yield return null;
     }
     public bool IsAbove(Vector2Int position)
     {
-        print(this.position + "/" + position);
         return this.position == position;
     }
     public IEnumerator Dig()
     {
-        print(name + ":DIG");
-        //FindObjectOfType<PlayerAnimation>().DigAnimation();
+        print(position);
+        FindObjectOfType<PlayerAnimation>().DigAnimation();
         var treasure = TreasureMap.TreasureIn(position);
         if (treasure != null && treasure.found == false)
         {

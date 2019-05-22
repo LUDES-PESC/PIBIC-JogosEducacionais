@@ -123,6 +123,7 @@
     <Compile Include="Assets\Scripts\System\Menu\Screen.cs" />
     <Compile Include="Assets\Scripts\System\Player\Player.cs" />
     <Compile Include="Assets\Scripts\System\Player\PlayerAnimation.cs" />
+    <Compile Include="Assets\Scripts\System\Tutorial Panel\TutorialPanel.cs" />
     <None Include="Assets\Levels\level_1.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

@@ -9,6 +9,7 @@ public class LevelData : ScriptableObject {
     public Sprite thumbnail;
     public LevelMap map;
     public int maxSteps;
+    public List<TutorialInfo> tutorial;
 
     [Header("Available Blocks")]
     public bool wait;

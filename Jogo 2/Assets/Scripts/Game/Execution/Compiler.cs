@@ -18,8 +18,9 @@ public class Compiler : MonoBehaviour {
     }
     private IEnumerator Execution(List<Program> programs)
     {
-        //yield return null;
-        for(int i = 0; i < LevelManager.beginBlocks.Count; i++)
+        yield return null;
+        TreasureMap.LoadMap();
+        for (int i = 0; i < LevelManager.beginBlocks.Count; i++)
         {
             var p = MapBuilder.LoadMap(0).initialPosition[i];
             LevelManager.beginBlocks[i].player.SetPosition((int)p.x, (int)p.y);
@@ -48,7 +49,14 @@ public class Compiler : MonoBehaviour {
 
             yield return new WaitForSeconds(Globals.TIME_BETWEEN_TURNS);
         }
-        yield return null;
+        if (TreasureMap.FinishLevel())
+        {
+            print("TERMINEI PORRA!");
+        }
+        else
+        {
+            print("NAO TERMINEI!");
+        }
     }
     private int GetRandomPlayerWithFlagNotRised(List<Program> programs)
     {

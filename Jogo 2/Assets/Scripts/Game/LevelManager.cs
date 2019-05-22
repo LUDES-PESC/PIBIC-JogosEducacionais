@@ -22,10 +22,12 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] public LevelList levels;
 
     private void Start () {
+        var level = levels.levels[MemoryCard.GetSelectedLevel()];
+        if(level.tutorial.Count > 0)
+            FindObjectOfType<TutorialPanel>().OpenTutorial(level.tutorial);
         CreatePlayer();
-        FindObjectOfType<BlockPanel>().Create(levels.levels[MemoryCard.GetSelectedLevel()]);
+        FindObjectOfType<BlockPanel>().Create(level);
         mapBuilder.BuildMap();
-        TreasureMap.LoadMap();
     }
     private void CreatePlayer()
     {
