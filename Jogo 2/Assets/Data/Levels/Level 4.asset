@@ -15,7 +15,7 @@ MonoBehaviour:
   thumbnail: {fileID: 21300000, guid: 4def344a71406a54e9809504225a6592, type: 3}
   map:
     initialPosition:
-    - {x: 1, y: 0}
+    - {x: -1, y: 2}
     borders:
     - {x: -2, y: 3}
     - {x: -1, y: 3}
@@ -74,6 +74,11 @@ MonoBehaviour:
     - {x: 2, y: -1}
     bigTreasure: {x: -1, y: 0}
   maxSteps: 15
+  tutorial:
+  - title: "Agora \xE9 com voc\xEA!"
+    description: "Chega de explica\xE7\xF5es! Quero ver se voc\xEA entendeu e consegue
+      jogar sozinho!"
+    image: {fileID: 21300000, guid: 4def344a71406a54e9809504225a6592, type: 3}
   wait: 1
   shoot: 0
   riseFlag: 0

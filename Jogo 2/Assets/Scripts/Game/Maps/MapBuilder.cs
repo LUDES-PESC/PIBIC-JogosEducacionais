@@ -98,7 +98,6 @@ public class MapBuilder : MonoBehaviour {
         for (int i = treasureRoot.childCount - 1; i >= 0; i--)
         {
             Destroy(treasureRoot.GetChild(i).gameObject);
-            print("DESTROY");
         }
     }
     public static LevelMap LoadMap(int index)

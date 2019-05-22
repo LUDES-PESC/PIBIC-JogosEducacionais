@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Compiler : MonoBehaviour {
+    private static List<Vector2> horizontalBarrelsOnWater;
+    private static List<Vector2> verticalBarrelsOnWater;
 
     public void Run()
     {
@@ -18,16 +20,17 @@ public class Compiler : MonoBehaviour {
     }
     private IEnumerator Execution(List<Program> programs)
     {
+        int steps = 0;
         yield return null;
         TreasureMap.LoadMap();
-        for (int i = 0; i < LevelManager.beginBlocks.Count; i++)
-        {
-            var p = MapBuilder.LoadMap(0).initialPosition[i];
-            LevelManager.beginBlocks[i].player.SetPosition((int)p.x, (int)p.y);
-            LevelManager.beginBlocks[i].player.SetLook(1, 0);
-        }
+        ResetPlayer();
         while (programs.Count > 0)
         {
+            steps++;
+
+            horizontalBarrelsOnWater = new List<Vector2>();
+            verticalBarrelsOnWater = new List<Vector2>();
+
             if (AllFlagsRised())
             {
                 foreach (var p in FindObjectsOfType<Player>())
@@ -48,14 +51,28 @@ public class Compiler : MonoBehaviour {
                 yield return e.Value.TurnUpdate();
 
             yield return new WaitForSeconds(Globals.TIME_BETWEEN_TURNS);
+
+            ObstacleMap.FixDictionary();
+            SwapBarrelForRaft();
         }
+        yield return new WaitForSeconds(1f);
         if (TreasureMap.FinishLevel())
         {
-            print("TERMINEI PORRA!");
+            FindObjectOfType<EndLevelPanel>().OpenPanel(TreasureMap.GetTreasureInfo(), steps);
         }
         else
         {
-            print("NAO TERMINEI!");
+            FindObjectOfType<MapBuilder>().BuildMap();
+            ResetPlayer();
+        }
+    }
+    private void ResetPlayer()
+    {
+        for (int i = 0; i < LevelManager.beginBlocks.Count; i++)
+        {
+            var p = MapBuilder.LoadMap(MemoryCard.GetSelectedLevel()).initialPosition[i];
+            LevelManager.beginBlocks[i].player.SetPosition((int)p.x, (int)p.y);
+            LevelManager.beginBlocks[i].player.SetLook(0, -1);
         }
     }
     private int GetRandomPlayerWithFlagNotRised(List<Program> programs)
@@ -77,6 +94,33 @@ public class Compiler : MonoBehaviour {
                 return false;
         }
         return true;
+    }
+    public static void AddBarrelOnWater(bool vertical, Vector2 position)
+    {
+        if (vertical)
+            verticalBarrelsOnWater.Add(position);
+        else
+            horizontalBarrelsOnWater.Add(position);
+    }
+    private void SwapBarrelForRaft()
+    {
+        var mapBuilder = FindObjectOfType<MapBuilder>();
+
+        foreach (var o in horizontalBarrelsOnWater)
+        {
+            GameObject obj = ObstacleMap.ObstacleIn(new Vector2Int((int)o.x, (int)o.y)).gameObject;
+            ObstacleMap.obstacles.Remove(new Vector2Int((int)o.x, (int)o.y));
+            Destroy(obj);
+        }
+        foreach (var o in verticalBarrelsOnWater)
+        {
+            GameObject obj = ObstacleMap.ObstacleIn(new Vector2Int((int)o.x, (int)o.y)).gameObject;
+            ObstacleMap.obstacles.Remove(new Vector2Int((int)o.x, (int)o.y));
+            Destroy(obj);
+        }
+
+        mapBuilder.CreateObstacle(mapBuilder.horizontalRaft, horizontalBarrelsOnWater);
+        mapBuilder.CreateObstacle(mapBuilder.verticalRaft, verticalBarrelsOnWater);
     }
 }
 public class Program

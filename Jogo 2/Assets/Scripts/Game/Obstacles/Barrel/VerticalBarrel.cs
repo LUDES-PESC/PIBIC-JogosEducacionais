@@ -26,7 +26,7 @@ public class VerticalBarrel : Obstacle, ICannonBulletTarget, IBulletTarget
     {
         if (!FindObjectOfType<GroundMap>().IsSandTile(position))
         {
-            //CommandExecutor.AddBarrelOnWater(true, position);
+            Compiler.AddBarrelOnWater(true, position);
         }
         yield return null;
     }

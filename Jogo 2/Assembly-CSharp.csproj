@@ -107,9 +107,11 @@
     <Compile Include="Assets\Scripts\System\Blocks\ShootBlock.cs" />
     <Compile Include="Assets\Scripts\System\Blocks\WaitBlock.cs" />
     <Compile Include="Assets\Scripts\System\Blocks\WalkBlock.cs" />
+    <Compile Include="Assets\Scripts\System\CameraBlock.cs" />
     <Compile Include="Assets\Scripts\System\Console\ConsoleLine.cs" />
     <Compile Include="Assets\Scripts\System\Data\BlockData.cs" />
     <Compile Include="Assets\Scripts\System\Data\BlockList.cs" />
+    <Compile Include="Assets\Scripts\System\End Level Panel\EndLevelPanel.cs" />
     <Compile Include="Assets\Scripts\System\Globals.cs" />
     <Compile Include="Assets\Scripts\System\LevelList.cs" />
     <Compile Include="Assets\Scripts\System\Menu\BackgroundMovement.cs" />

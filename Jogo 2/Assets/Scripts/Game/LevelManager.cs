@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
     public static List<BeginBlock> beginBlocks = new List<BeginBlock>();
+    public static LevelManager me;
 
     [Header("Managers")]
     [SerializeField] private MapBuilder mapBuilder;
@@ -22,6 +23,7 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] public LevelList levels;
 
     private void Start () {
+        me = this;
         var level = levels.levels[MemoryCard.GetSelectedLevel()];
         if(level.tutorial.Count > 0)
             FindObjectOfType<TutorialPanel>().OpenTutorial(level.tutorial);
@@ -36,6 +38,7 @@ public class LevelManager : MonoBehaviour {
         for(int i = 0; i < level.initialPosition.Count;i++)
         {
             var p = Instantiate(player).GetComponent<Player>();
+            p.SetLook(0,-1);
             p.SetPosition((int)level.initialPosition[i].x, (int)level.initialPosition[i].y);
             p.SetColor(playerColors[i]);
             var b = Instantiate(beginBlock, beginBlockRoot).GetComponent<BeginBlock>();
@@ -43,9 +46,5 @@ public class LevelManager : MonoBehaviour {
             b.SetColor(playerColors[i]);
             beginBlocks.Add(b);
         }
-    }
-    public void BackToMenu()
-    {
-        LoadingScreen.LoadScreen("MainMenu");
     }
 }
