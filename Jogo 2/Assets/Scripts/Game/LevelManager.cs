@@ -18,8 +18,12 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] private Transform beginBlockRoot;
     [SerializeField] private List<Color> playerColors;
 
+    [Header("LevelMaps")]
+    [SerializeField] public LevelList levels;
+
     private void Start () {
         CreatePlayer();
+        FindObjectOfType<BlockPanel>().Create(levels.levels[MemoryCard.GetSelectedLevel()]);
         mapBuilder.BuildMap();
         TreasureMap.LoadMap();
     }

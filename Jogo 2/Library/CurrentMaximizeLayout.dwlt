@@ -22,7 +22,7 @@ MonoBehaviour:
   m_MinSize: {x: 681, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 1
-  controlID: 22369
+  controlID: 3603
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -51,15 +51,15 @@ MonoBehaviour:
   m_MaximizeOnPlay: 1
   m_Gizmos: 0
   m_Stats: 0
-  m_SelectedSizes: 0500000000000000000000000e000000000000000000000000000000000000000000000000000000
+  m_SelectedSizes: 0200000000000000000000000e000000000000000000000000000000000000000000000000000000
   m_TargetDisplay: 0
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -494
-    m_HBaseRangeMax: 494
+    m_HBaseRangeMin: -370.5
+    m_HBaseRangeMax: 370.5
     m_VBaseRangeMin: -278
     m_VBaseRangeMax: 278
     m_HAllowExceedBaseRangeMin: 1
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_MinSize: {x: 681, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 22370
+  controlID: 3604
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 22371
+  controlID: 3605
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 221}
   m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 22372
+  controlID: 3572
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -226,9 +226,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 00280000
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0c78f5ff1283f5ffea87f5ff6aaff5fff6e4f5fff8e4f5ff3227fcff3628fcffaa2afcffe4fbffff000000000c3100005e31000076310000823100008e3100009a310000ba310000ce310000e2310000bc4f0000305000009a710000d2710000dc7100003272000098720000
+    m_ExpandedIDs: e4fbffff000000003a310000c4310000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -308,9 +308,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 638.7369, y: 262.95935, z: 82.375}
+    m_Target: {x: 390.7396, y: 173.58247, z: 85.5}
     speed: 2
-    m_Value: {x: 638.7369, y: 262.95935, z: 82.375}
+    m_Value: {x: 390.7396, y: 173.58247, z: 85.5}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -342,9 +342,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 891.33673
+    m_Target: 584.1854
     speed: 2
-    m_Value: 891.33673
+    m_Value: 584.1854
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -421,21 +421,21 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/System/Player
+    - Assets/Prefab/Game/Blocks
   m_ViewMode: 1
   m_StartGridSize: 72
   m_LastFolders:
-  - Assets/Scripts/System/Player
+  - Assets/Prefab/Game/Blocks
   m_LastFoldersGridSize: 72
   m_LastProjectPath: C:\Users\pedro\Documents\GitHub\PIBIC-JogosEducacionais\Jogo
     2
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 101}
-    m_SelectedIDs: 622d0000
-    m_LastClickedID: 11618
-    m_ExpandedIDs: 00000000942a00003c2c0000862c00002a2d0000682d00003a2e00009c2e00003a2f0000722f0000b62f0000283000008234000000ca9a3b
+    scrollPos: {x: 0, y: 181}
+    m_SelectedIDs: c02b0000
+    m_LastClickedID: 11200
+    m_ExpandedIDs: 00000000922a0000e02a00009e2c0000542d0000642e0000d22e0000762f0000b62f0000ec2f000096300000e6340000e8340000ea340000ec34000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -463,7 +463,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000942a00003c2c0000862c00002a2d0000682d00003a2e00009c2e00003a2f0000722f0000b62f0000283000008234000000ca9a3b
+    m_ExpandedIDs: 00000000922a0000e02a00009e2c0000542d0000642e0000d22e0000762f0000b62f0000ec2f000096300000e6340000e8340000ea340000ec34000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -488,10 +488,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 00280000
-    m_LastClickedInstanceID: 10240
-    m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000982a00008a7400001e2d00002c2e000000000000522c0000f62c0000e02a0000
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: c6230000982a00008a7400001e2d00002c2e000000000000522c0000f62c0000e02a0000e82c0000283000007e2e0000aa2a0000c42b00008a2b000082300000242e0000f22a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_AnimEditor: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -581966
+  m_LastSelectedObjectID: -83188
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52

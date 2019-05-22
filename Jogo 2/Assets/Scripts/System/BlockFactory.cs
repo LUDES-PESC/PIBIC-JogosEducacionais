@@ -9,7 +9,7 @@ public class BlockFactory : MonoBehaviour, IDropHandler {
 
     public void Create()
     {
-        var block = Instantiate(blockPrefab, FindObjectOfType<Canvas>().transform);
+        Instantiate(blockPrefab, FindObjectOfType<Canvas>().transform);
     }
     public void OnDrop(PointerEventData eventData)
     {

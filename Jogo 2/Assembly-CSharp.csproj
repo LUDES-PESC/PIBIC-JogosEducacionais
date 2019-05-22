@@ -68,6 +68,7 @@
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
+    <Compile Include="Assets\Scripts\Game\BlockPanel.cs" />
     <Compile Include="Assets\Scripts\Game\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\Game\CommandType.cs" />
     <Compile Include="Assets\Scripts\Game\ElementType.cs" />
@@ -107,6 +108,8 @@
     <Compile Include="Assets\Scripts\System\Blocks\WaitBlock.cs" />
     <Compile Include="Assets\Scripts\System\Blocks\WalkBlock.cs" />
     <Compile Include="Assets\Scripts\System\Console\ConsoleLine.cs" />
+    <Compile Include="Assets\Scripts\System\Data\BlockData.cs" />
+    <Compile Include="Assets\Scripts\System\Data\BlockList.cs" />
     <Compile Include="Assets\Scripts\System\Globals.cs" />
     <Compile Include="Assets\Scripts\System\LevelList.cs" />
     <Compile Include="Assets\Scripts\System\Menu\BackgroundMovement.cs" />

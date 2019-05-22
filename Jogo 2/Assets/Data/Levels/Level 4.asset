@@ -74,3 +74,6 @@ MonoBehaviour:
     - {x: 2, y: -1}
     bigTreasure: {x: -1, y: 0}
   maxSteps: 15
+  wait: 1
+  shoot: 0
+  riseFlag: 0
