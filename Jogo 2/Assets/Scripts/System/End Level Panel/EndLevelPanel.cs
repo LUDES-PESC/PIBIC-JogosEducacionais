@@ -15,7 +15,7 @@ public class EndLevelPanel : MonoBehaviour {
 
     public void OpenPanel(TreasureInfo info, int steps)
     {
-        CameraMovement.canBeMoved = false;
+        CameraMovement.canBeMoved++;
         group.DOFade(1, 0.5f);
         group.interactable = true;
         group.blocksRaycasts = true;
@@ -31,7 +31,7 @@ public class EndLevelPanel : MonoBehaviour {
     }
     public void TryAgain()
     {
-        CameraMovement.canBeMoved = true;
+        CameraMovement.canBeMoved--;
         group.DOFade(0, 0.5f);
         group.interactable = false;
         group.blocksRaycasts = false;
@@ -40,6 +40,7 @@ public class EndLevelPanel : MonoBehaviour {
     public void OpenMenu()
     {
         LoadingScreen.LoadScreen("MainMenu");
+        CameraMovement.canBeMoved = 0;
     }
     public void SaveProgress(TreasureInfo info, int steps)
     {

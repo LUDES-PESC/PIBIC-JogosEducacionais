@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class CameraBlock : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
     public void OnPointerEnter(PointerEventData eventData)
     {
-        CameraMovement.canBeMoved = false;
+        CameraMovement.canBeMoved++;
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        CameraMovement.canBeMoved = true;
+        CameraMovement.canBeMoved--;
     }
 }

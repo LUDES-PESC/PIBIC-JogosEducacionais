@@ -28,7 +28,7 @@ public class TreasureMap : MonoBehaviour {
         {
             if (t.bigTreasure)
                 ti.bigTreasure = t;
-            else
+            else if(t.found)
                 ti.littleTreasures.Add(t);
         }
         return ti;

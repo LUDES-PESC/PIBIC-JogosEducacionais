@@ -15,6 +15,7 @@ public class LoadingScreen : MonoBehaviour {
     }
     public static void LoadScreen(string name)
     {
+        me.transform.SetAsLastSibling();
         me.LoadSceneWithDelay(name, 1);
     }
     private void LoadSceneWithDelay(string name, float delay)

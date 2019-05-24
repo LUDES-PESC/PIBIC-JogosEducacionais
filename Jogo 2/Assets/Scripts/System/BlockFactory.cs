@@ -13,7 +13,7 @@ public class BlockFactory : MonoBehaviour, IDropHandler {
     }
     public void OnDrop(PointerEventData eventData)
     {
-        CameraMovement.canBeMoved = true;
+        CameraMovement.canBeMoved--;
         if (Block.dragged != null)
         {
             Destroy(Block.dragged.gameObject);

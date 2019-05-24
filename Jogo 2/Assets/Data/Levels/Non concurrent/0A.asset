@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f43f08e4d85effd48bbf24db7f038aa1, type: 3}
-  m_Name: Level 0
+  m_Name: 0A
   m_EditorClassIdentifier: 
-  title: "O \xEDnicio de uma jornada!"
+  title: Ilha da aventura
   thumbnail: {fileID: 21300000, guid: ce7d05349d367274b88f2444f5581db8, type: 3}
   map:
     initialPosition:
@@ -45,12 +45,22 @@ MonoBehaviour:
     rightCannon: []
     treasures: []
     bigTreasure: {x: 0, y: -1}
-  maxSteps: 4
+  maxSteps: 3
   tutorial:
-  - title: Bem vindo!
-    description: "Nosso pirata precisa de ajuda para desenterrar o tesouro. Para fazer
-      ele agir crie uma sequ\xEAncia de blocos e depois em RODAR."
-    image: {fileID: 21300000, guid: ce7d05349d367274b88f2444f5581db8, type: 3}
+  - title: "O rob\xF4 pirata"
+    description: "O pirata DIEGO-738 precisa de sua ajuda! Seu maior desejo \xE9 desenterrar
+      todos os ba\xFAs escondidos pelos sete mares. "
+    image: {fileID: 21300000, guid: c4887924640d52c4ca6565e8e8697325, type: 3}
+  - title: Comandos
+    description: "Para ajudar o rob\xF4 basta arrastar os blocos de comando que est\xE3o
+      do lado esquerdo. Posicione os blocos bem em cima uns dos outros para montar
+      uma sequ\xEAncia."
+    image: {fileID: 21300000, guid: f4d8088ef4473194d8b2a9e19e2ed04b, type: 3}
+  - title: Olhar, andar e Cavar!
+    description: "Os blocos azuis fazem o pirata <b> Olhar </b> para uma dire\xE7\xE3o.
+      O bloco marrom faz ele <b>andar</b> para onde estiver olhando. Quando encontrar
+      a localiza\xE7\xE3o do tesouro, use o comando de <b>cavar</b>"
+    image: {fileID: 21300000, guid: eae3f5f10d326ce48b365a2a08ca67ec, type: 3}
   wait: 0
   shoot: 0
   riseFlag: 0

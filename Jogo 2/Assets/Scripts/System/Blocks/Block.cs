@@ -30,7 +30,7 @@ public abstract class Block : MonoBehaviour, IDragHandler, IBeginDragHandler, ID
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        CameraMovement.canBeMoved = false;
+        CameraMovement.canBeMoved++;
         if (onPanelBlock)
         {
             int siblingIndex = transform.GetSiblingIndex();
@@ -61,7 +61,7 @@ public abstract class Block : MonoBehaviour, IDragHandler, IBeginDragHandler, ID
     }
     public void OnEndDrag(PointerEventData eventData)
     {
-        CameraMovement.canBeMoved = true;
+        CameraMovement.canBeMoved--;
         GetComponent<Image>().raycastTarget = true;
         dragged = null;
     }
@@ -69,13 +69,13 @@ public abstract class Block : MonoBehaviour, IDragHandler, IBeginDragHandler, ID
     {
         if (onPanelBlock)
         {
-            CameraMovement.canBeMoved = true;
+            CameraMovement.canBeMoved--;
             if (Block.dragged != null)
             {
                 Destroy(Block.dragged.gameObject);
             }
         }
-        else
+        else if(!Block.dragged.initialBlock)
         {
             GetComponent<AudioSource>().Play();
             if (next == null)
@@ -131,7 +131,8 @@ public abstract class Block : MonoBehaviour, IDragHandler, IBeginDragHandler, ID
     private void CorrectBlockAnchor()
     {
         rect.DOSizeDelta(new Vector2(100, 100), 0.25f);
-        rect.anchorMin = new Vector2(0, 0.5f);
-        rect.anchorMax = new Vector2(0, 0.5f);
+        rect.anchorMin = new Vector2(0.5f, 1f);
+        rect.anchorMax = new Vector2(0.5f, 1f);
+        rect.pivot = new Vector2(0.5f, 1f);
     }
 }

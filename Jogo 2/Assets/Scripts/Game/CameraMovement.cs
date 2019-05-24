@@ -4,16 +4,20 @@ using UnityEngine;
 using DG.Tweening;
 
 public class CameraMovement : MonoBehaviour {
-    public static bool canBeMoved;
+    public static int canBeMoved;
     private bool startedDrag;
 
     private Vector3 lastMousePosition;
     private Vector3 currentMousePosition;
     private Vector3 delta;
 
+    private void Start()
+    {
+        //canBeMoved = 0;
+    }
     private void Update()
     {
-        if(canBeMoved)
+        if(canBeMoved == 0)
             DragCamera();
     }
     private void DragCamera()

@@ -13,22 +13,40 @@ public class TutorialPanel : MonoBehaviour {
     [SerializeField] private CanvasGroup group;
     [SerializeField] private RectTransform panel;
 
-	public void OpenTutorial(List<TutorialInfo> info)
+    private int index;
+    private List<TutorialInfo> info;
+
+    public void OpenTutorial(List<TutorialInfo> info)
     {
-        CameraMovement.canBeMoved = false;
+        CameraMovement.canBeMoved++;
+        this.info = info;
+        index = 0;
+
         group.DOFade(1, 0.5f);
         group.interactable = true;
         group.blocksRaycasts = true;
         panel.DOAnchorPosY(-680, 0);
         panel.DOAnchorPosY(40, 0.5f);
 
-        title.text = info[0].title;
-        description.text = info[0].description;
-        image.sprite = info[0].image;
+        title.text = info[index].title;
+        description.text = info[index].description;
+        image.sprite = info[index].image;
+    }
+    public void Next()
+    {
+        index++;
+        if (index >= info.Count)
+        {
+            Hide();
+            return;
+        }
+        title.text = info[index].title;
+        description.text = info[index].description;
+        image.sprite = info[index].image;
     }
     public void Hide()
     {
-        CameraMovement.canBeMoved = true;
+        CameraMovement.canBeMoved--;
         group.DOFade(0, 0.5f);
         group.interactable = false;
         group.blocksRaycasts = false;

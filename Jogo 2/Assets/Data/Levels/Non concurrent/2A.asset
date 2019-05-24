@@ -9,13 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f43f08e4d85effd48bbf24db7f038aa1, type: 3}
-  m_Name: Level 3
+  m_Name: 2A
   m_EditorClassIdentifier: 
-  title: "Canh\xF5es: ao ataque!"
-  thumbnail: {fileID: 21300000, guid: 59d314da3d6913a4fa0e0f71bf73b760, type: 3}
+  title: Ilha da Jangada
+  thumbnail: {fileID: 21300000, guid: 33f39adacca203b4894f4bbeec4b167f, type: 3}
   map:
     initialPosition:
-    - {x: 1, y: 0}
+    - {x: -1, y: 1}
     borders:
     - {x: 2, y: 1}
     - {x: 2, y: 0}
@@ -35,31 +35,32 @@ MonoBehaviour:
     - {x: -2, y: -2}
     ground:
     - {x: -1, y: 1}
-    - {x: 0, y: 1}
-    - {x: 1, y: 1}
-    - {x: 1, y: 0}
+    - {x: -1, y: 0}
     - {x: -1, y: -1}
-    - {x: 1, y: -1}
+    - {x: 0, y: 1}
+    - {x: 0, y: 0}
+    - {x: 0, y: -1}
     woodenBox:
-    - {x: 1, y: -1}
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
     pointyRocks: []
     verticalBarrel: []
     horizonalBarrel: []
-    verticalRaft: []
+    verticalRaft:
+    - {x: 1, y: 1}
     horizontalRaft: []
     upCannon: []
     downCannon: []
     leftCannon: []
-    rightCannon:
-    - {x: -1, y: -1}
+    rightCannon: []
     treasures: []
-    bigTreasure: {x: 1, y: -1}
-  maxSteps: 12
+    bigTreasure: {x: -1, y: -1}
+  maxSteps: 9
   tutorial:
-  - title: "Canh\xF5es!"
-    description: "Um canh\xE3o pode ser ativado ao atirar uma semente com seu estilingue.
-      Mire nele e atire. Ele \xE9 capaz de destruir muitos objetos de madeira."
-    image: {fileID: 21300000, guid: 59d314da3d6913a4fa0e0f71bf73b760, type: 3}
-  wait: 0
-  shoot: 1
+  - title: Jangadas
+    description: "Uma jangada \xE9 uma maneira interessante de andar pela \xE1gua.
+      Fique em cima dela e use o comando amarelo (ESPERAR)."
+    image: {fileID: 21300000, guid: 099ce8d4ea36476429f440faf50eb0e8, type: 3}
+  wait: 1
+  shoot: 0
   riseFlag: 0
