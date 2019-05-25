@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     {
         lookDirection.x = x;
         lookDirection.y = y;
-        FindObjectOfType<PlayerAnimation>().ChangeAnimation(lookDirection);
+        transform.GetChild(0).GetComponent<PlayerAnimation>().ChangeAnimation(lookDirection);
     }
     public IEnumerator Move()
     {
@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
     }
     public IEnumerator Walk()
     {
+        transform.GetChild(0).GetComponent<PlayerAnimation>().ChangeAnimation(lookDirection);
         isWaiting = false;
         if (FindObjectOfType<GroundMap>().IsBorderTile(position + lookDirection))
             yield return null;
@@ -53,8 +54,8 @@ public class Player : MonoBehaviour
             }
             else
             {
-                //ErrorHandling.AddError(new Error(CommandExecutor.currentLine, "WALKING ON WATER"));
-                print("ERROR: WALKING ON WATER");
+                ErrorHandling.AddError(new Error(Compiler.steps, "WALKING ON WATER"));
+                transform.GetChild(2).GetComponent<PlayerErrorMessage>().ShowError();
             }
         }
         else
@@ -67,8 +68,8 @@ public class Player : MonoBehaviour
             }
             else
             {
-                //ErrorHandling.AddError(new Error(CommandExecutor.currentLine, "PUSHING OBSTACLE"));
-                print("ERROR: PUSHING OBSTACLE");
+                ErrorHandling.AddError(new Error(Compiler.steps, "PUSHING OBSTACLE"));
+                transform.GetChild(2).GetComponent<PlayerErrorMessage>().ShowError();
             }
         }
         yield return null;
@@ -101,7 +102,7 @@ public class Player : MonoBehaviour
     {
         isWaiting = false;
         lookDirection = direction;
-        FindObjectOfType<PlayerAnimation>().ChangeAnimation(direction);
+        transform.GetChild(0).GetComponent<PlayerAnimation>().ChangeAnimation(direction);
         yield return null;
     }
     public IEnumerator RiseFlag()
@@ -122,8 +123,7 @@ public class Player : MonoBehaviour
     }
     public IEnumerator Dig()
     {
-        print(position);
-        FindObjectOfType<PlayerAnimation>().DigAnimation();
+        transform.GetChild(0).GetComponent<PlayerAnimation>().DigAnimation();
         var treasure = TreasureMap.TreasureIn(position);
         if (treasure != null && treasure.found == false)
         {
@@ -131,8 +131,8 @@ public class Player : MonoBehaviour
         }
         else
         {
-            //ErrorHandling.AddError(new Error(CommandExecutor.currentLine, "DIGGING IN WRONG PLACE"));
-            print("ERROR: DIGGING IN WRONG PLACE");
+            ErrorHandling.AddError(new Error(Compiler.steps, "DIGGING IN WRONG PLACE"));
+            transform.GetChild(2).GetComponent<PlayerErrorMessage>().ShowError();
         }
         yield return null;
     }

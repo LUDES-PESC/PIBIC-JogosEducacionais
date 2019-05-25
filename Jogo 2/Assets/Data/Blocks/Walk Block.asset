@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: Walk Block
   m_EditorClassIdentifier: 
   label: Walk
-  icon: {fileID: 21300000, guid: 78b1a207d22cbbe46813a02dd51ac4cd, type: 3}
+  icon: {fileID: 21300000, guid: 6c92a7bc63f865d4aaba46370bbc0beb, type: 3}
   color: {r: 0.7921569, g: 0.45559752, b: 0.12941176, a: 1}

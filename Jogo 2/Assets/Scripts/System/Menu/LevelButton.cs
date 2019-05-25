@@ -21,11 +21,15 @@ public class LevelButton : MonoBehaviour {
         this.title.text = levelData.title;
         this.thumbnail.sprite = levelData.thumbnail;
 
-        this.bigTreasureValue.text = levelProgress.bigTreasure ? "1/1" : "-/0";
-        this.treasuresValue.text = levelProgress.bigTreasure ?
+        this.bigTreasureValue.text = IsLevelCompleted(levelProgress, levelData) ? 
+            levelProgress.bigTreasures +"/"+levelData.map.bigTreasures.Count 
+            : "-/" + levelData.map.bigTreasures.Count;
+
+        this.treasuresValue.text = IsLevelCompleted(levelProgress, levelData) ?
             levelProgress.treasures + "/" + levelData.map.treasures.Count
             : "-/" + levelData.map.treasures.Count;
-        this.maxStepsValue.text = levelProgress.bigTreasure ?
+
+        this.maxStepsValue.text = IsLevelCompleted(levelProgress, levelData) ?
             levelProgress.steps + "/" + levelData.maxSteps
             : "-/" + levelData.maxSteps;
     }
@@ -34,6 +38,10 @@ public class LevelButton : MonoBehaviour {
         MemoryCard.SetSelectedLevel(levelIndex);
         print("Opening Level: " + levelIndex);
         LoadingScreen.LoadScreen("SampleScene");
+    }
+    private bool IsLevelCompleted(LevelProgress progress, LevelData data)
+    {
+        return progress.bigTreasures == data.map.bigTreasures.Count;
     }
 }
 

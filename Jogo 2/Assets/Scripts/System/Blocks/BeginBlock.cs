@@ -23,6 +23,7 @@ public class BeginBlock : Block {
             p.blocks = next.GetCommandList();
             p.player = player;
             p.blocks.Reverse();
+            p.length = p.blocks.Count;
             return p;
         }
         else

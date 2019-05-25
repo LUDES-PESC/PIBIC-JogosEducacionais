@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] public LevelList levels;
 
     private void Start () {
+        FindObjectOfType<BlockFitter>().UpdateSize();
         me = this;
         var level = levels.levels[MemoryCard.GetSelectedLevel()];
         if(level.tutorial.Count > 0)
@@ -30,6 +31,7 @@ public class LevelManager : MonoBehaviour {
         CreatePlayer();
         FindObjectOfType<BlockPanel>().Create(level);
         mapBuilder.BuildMap();
+        transform.position = (Vector3) levels.levels[MemoryCard.GetSelectedLevel()].cameraInitialPosition - Vector3.forward*10;
     }
     private void CreatePlayer()
     {

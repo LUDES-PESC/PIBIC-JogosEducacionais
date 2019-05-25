@@ -42,6 +42,7 @@ public class LevelSelectionScreen : Screen {
     }
     private int LastUnlockedLevel(List<LevelProgress> progress)
     {
+        print(data.levels.Count);
         return Mathf.Clamp(progress.Count, 1, data.levels.Count);
     }
 }

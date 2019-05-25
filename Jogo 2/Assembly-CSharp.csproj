@@ -98,6 +98,8 @@
     <Compile Include="Assets\Scripts\Game\Obstacles\WoodenBox.cs" />
     <Compile Include="Assets\Scripts\Game\SaveAndLoad\LevelData.cs" />
     <Compile Include="Assets\Scripts\Game\SaveAndLoad\MemoryCard.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\BlockFitter.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\HideOnExecution.cs" />
     <Compile Include="Assets\Scripts\System\BlockFactory.cs" />
     <Compile Include="Assets\Scripts\System\Blocks\BeginBlock.cs" />
     <Compile Include="Assets\Scripts\System\Blocks\Block.cs" />
@@ -125,6 +127,7 @@
     <Compile Include="Assets\Scripts\System\Menu\Screen.cs" />
     <Compile Include="Assets\Scripts\System\Player\Player.cs" />
     <Compile Include="Assets\Scripts\System\Player\PlayerAnimation.cs" />
+    <Compile Include="Assets\Scripts\System\Player\PlayerErrorMessage.cs" />
     <Compile Include="Assets\Scripts\System\Tutorial Panel\TutorialPanel.cs" />
     <None Include="Assets\Levels\level_1.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />

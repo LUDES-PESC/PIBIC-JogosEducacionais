@@ -46,7 +46,7 @@ public class MemoryCard {
 [System.Serializable]
 public class LevelProgress
 {
-    public bool bigTreasure;
+    public int bigTreasures = 0;
     public int treasures = 0;
     public int steps = 100;
 }

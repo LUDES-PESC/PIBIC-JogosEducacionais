@@ -13,6 +13,8 @@ public class EndLevelPanel : MonoBehaviour {
     [SerializeField] private CanvasGroup group;
     [SerializeField] private RectTransform panel;
 
+    public LevelList levels;
+
     public void OpenPanel(TreasureInfo info, int steps)
     {
         CameraMovement.canBeMoved++;
@@ -23,9 +25,9 @@ public class EndLevelPanel : MonoBehaviour {
         panel.DOAnchorPosY(40, 0.5f);
 
         var level = LevelManager.me.levels.levels[MemoryCard.GetSelectedLevel()];
-        bigTreasure.text = "1/1";
-        smallTreasures.text = info.littleTreasures.Count + "/" + level.map.treasures.Count;
-        this.steps.text = steps + "/" + level.maxSteps;
+        bigTreasure.text = "<color=red>" + info.bigTreasures.Count + "</color> de " + level.map.bigTreasures.Count;
+        smallTreasures.text = "<color=red>" + info.littleTreasures.Count + "</color> de " + level.map.treasures.Count;
+        this.steps.text = "<color=red>" + steps + "</color> de " + level.maxSteps;
 
         SaveProgress(info, steps);
     }
@@ -45,13 +47,22 @@ public class EndLevelPanel : MonoBehaviour {
     public void SaveProgress(TreasureInfo info, int steps)
     {
         var memory = MemoryCard.Load();
-        if (!memory.levels[MemoryCard.GetSelectedLevel()].bigTreasure)
+        print("A: " + memory.levels[MemoryCard.GetSelectedLevel()].bigTreasures);
+        if (memory.levels[MemoryCard.GetSelectedLevel()].bigTreasures == 0)
+        {
+            print("NEW LEVEL UNLOCKED");
             memory.levels.Add(new LevelProgress());
-        memory.levels[MemoryCard.GetSelectedLevel()].bigTreasure = info.bigTreasure;
+        }
+
         memory.levels[MemoryCard.GetSelectedLevel()].steps = steps < memory.levels[MemoryCard.GetSelectedLevel()].steps ?
             steps : memory.levels[MemoryCard.GetSelectedLevel()].steps;
+
         memory.levels[MemoryCard.GetSelectedLevel()].treasures = info.littleTreasures.Count > memory.levels[MemoryCard.GetSelectedLevel()].treasures ?
             info.littleTreasures.Count : memory.levels[MemoryCard.GetSelectedLevel()].treasures;
+
+        memory.levels[MemoryCard.GetSelectedLevel()].bigTreasures = info.bigTreasures.Count > memory.levels[MemoryCard.GetSelectedLevel()].bigTreasures ?
+            info.bigTreasures.Count : memory.levels[MemoryCard.GetSelectedLevel()].bigTreasures;
+
         memory.Save();
     }
 }

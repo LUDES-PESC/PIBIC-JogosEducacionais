@@ -60,6 +60,12 @@ MonoBehaviour:
     woodenBox: []
     pointyRocks:
     - {x: -1, y: -2}
+    - {x: -3, y: 1}
+    - {x: -3, y: -1}
+    - {x: 3, y: -1}
+    - {x: 3, y: 0}
+    - {x: 3, y: 1}
+    - {x: -3, y: 0}
     verticalBarrel: []
     horizonalBarrel:
     - {x: 1, y: 0}
@@ -74,9 +80,11 @@ MonoBehaviour:
     treasures:
     - {x: -2, y: -2}
     - {x: 1, y: 0}
-    bigTreasure: {x: -2, y: 2}
+    bigTreasures:
+    - {x: -2, y: 2}
   maxSteps: 99
   tutorial: []
+  cameraInitialPosition: {x: 0.5, y: 0.5}
   wait: 1
   shoot: 1
   riseFlag: 0

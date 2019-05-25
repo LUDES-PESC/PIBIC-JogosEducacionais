@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114140786431367132}
   - component: {fileID: 114066345733293506}
   - component: {fileID: 82336552072581480}
+  - component: {fileID: 225994522576347144}
   m_Layer: 5
   m_Name: Rise Flag Block
   m_TagString: Untagged
@@ -263,3 +264,14 @@ RectTransform:
   m_AnchoredPosition: {x: 169, y: 64.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!225 &225994522576347144
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1186094447519866}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

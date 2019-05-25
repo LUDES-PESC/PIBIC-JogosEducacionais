@@ -4,7 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class LevelMap {
-    public List<Vector2> initialPosition;
+    public List<Vector2> initialPosition = new List<Vector2>();
     public List<Vector2> borders = new List<Vector2>();
     public List<Vector2> ground = new List<Vector2>();
     public List<Vector2> woodenBox = new List<Vector2>();
@@ -18,5 +18,5 @@ public class LevelMap {
     public List<Vector2> leftCannon = new List<Vector2>();
     public List<Vector2> rightCannon = new List<Vector2>();
     public List<Vector2> treasures = new List<Vector2>();
-    public Vector2 bigTreasure;
+    public List<Vector2> bigTreasures = new List<Vector2>();
 }

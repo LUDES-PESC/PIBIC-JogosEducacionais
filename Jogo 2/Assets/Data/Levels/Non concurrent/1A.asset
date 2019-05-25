@@ -16,7 +16,21 @@ MonoBehaviour:
   map:
     initialPosition:
     - {x: 0, y: 2}
-    borders: []
+    borders:
+    - {x: -1, y: 3}
+    - {x: 0, y: 3}
+    - {x: 1, y: 3}
+    - {x: -1, y: 2}
+    - {x: 1, y: 2}
+    - {x: -1, y: 1}
+    - {x: 1, y: 1}
+    - {x: -1, y: 0}
+    - {x: 1, y: 0}
+    - {x: -1, y: -1}
+    - {x: 1, y: -1}
+    - {x: -1, y: -2}
+    - {x: 0, y: -2}
+    - {x: 1, y: -2}
     ground:
     - {x: 0, y: 2}
     - {x: 0, y: -1}
@@ -33,9 +47,15 @@ MonoBehaviour:
     leftCannon: []
     rightCannon: []
     treasures: []
-    bigTreasure: {x: 0, y: -1}
+    bigTreasures:
+    - {x: 0, y: -1}
   maxSteps: 4
-  tutorial: []
+  tutorial:
+  - title: Empurrando barris 1
+    description: "Se voc\xEA andar na dire\xE7\xE3o do barril desta ilha voc\xEA pode
+      empurr\xE1-lo."
+    image: {fileID: 21300000, guid: 944d26de0f3461f49b34d5816f8a37b9, type: 3}
+  cameraInitialPosition: {x: 0.5, y: 0.5}
   wait: 0
   shoot: 0
   riseFlag: 0

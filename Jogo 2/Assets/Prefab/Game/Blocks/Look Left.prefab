@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114439019590939946}
   - component: {fileID: 114015408352388570}
   - component: {fileID: 82855615816592596}
+  - component: {fileID: 225310081343794054}
   m_Layer: 5
   m_Name: Look Left
   m_TagString: Untagged
@@ -264,3 +265,14 @@ RectTransform:
   m_AnchoredPosition: {x: 432.8, y: -5.9900017}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!225 &225310081343794054
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1136605081824710}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

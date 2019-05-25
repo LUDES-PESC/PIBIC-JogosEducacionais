@@ -16,7 +16,25 @@ MonoBehaviour:
   map:
     initialPosition:
     - {x: -2, y: 2}
-    borders: []
+    borders:
+    - {x: -3, y: 3}
+    - {x: -2, y: 3}
+    - {x: -1, y: 3}
+    - {x: 0, y: 3}
+    - {x: -3, y: 2}
+    - {x: 0, y: 2}
+    - {x: 1, y: 2}
+    - {x: -3, y: 1}
+    - {x: -2, y: 1}
+    - {x: 1, y: 1}
+    - {x: 2, y: 1}
+    - {x: -2, y: 0}
+    - {x: -1, y: 0}
+    - {x: 2, y: 0}
+    - {x: -1, y: -1}
+    - {x: 0, y: -1}
+    - {x: 1, y: -1}
+    - {x: 2, y: -1}
     ground:
     - {x: 1, y: 0}
     - {x: 0, y: 0}
@@ -26,7 +44,9 @@ MonoBehaviour:
     - {x: -1, y: 1}
     - {x: -1, y: 1}
     woodenBox: []
-    pointyRocks: []
+    pointyRocks:
+    - {x: 1, y: 2}
+    - {x: -1, y: 0}
     verticalBarrel: []
     horizonalBarrel: []
     verticalRaft: []
@@ -36,9 +56,16 @@ MonoBehaviour:
     leftCannon: []
     rightCannon: []
     treasures: []
-    bigTreasure: {x: 1, y: 0}
-  maxSteps: 3
-  tutorial: []
+    bigTreasures:
+    - {x: 1, y: 0}
+  maxSteps: 11
+  tutorial:
+  - title: "A import\xE2ncia de Olhar"
+    description: "O bloco marrom (ANDAR) apenas faz o robo se mover na dire\xE7\xE3o
+      que olha. Se quiser que ele v\xE1 para outro lado, deve olhar primeiro usando
+      alguns dos blocos azuis."
+    image: {fileID: 21300000, guid: eae3f5f10d326ce48b365a2a08ca67ec, type: 3}
+  cameraInitialPosition: {x: 0, y: 1.5}
   wait: 0
   shoot: 0
   riseFlag: 0

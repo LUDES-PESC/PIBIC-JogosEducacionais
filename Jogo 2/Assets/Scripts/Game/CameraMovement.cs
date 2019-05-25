@@ -5,20 +5,20 @@ using DG.Tweening;
 
 public class CameraMovement : MonoBehaviour {
     public static int canBeMoved;
-    private bool startedDrag;
+    private static bool startedDrag;
 
     private Vector3 lastMousePosition;
     private Vector3 currentMousePosition;
     private Vector3 delta;
 
-    private void Start()
-    {
-        //canBeMoved = 0;
-    }
+    public float[] yBounds = new float[2];
+    public float[] xBounds = new float[2];
+
     private void Update()
     {
         if(canBeMoved == 0)
             DragCamera();
+        ClampPosition();
     }
     private void DragCamera()
     {
@@ -35,11 +35,22 @@ public class CameraMovement : MonoBehaviour {
             delta.z = 0;
             transform.position -= delta;
         }
+        else
+        {
+            startedDrag = false;
+        }
         lastMousePosition = currentMousePosition;
     }
     public static void MoveTo(Vector2 position)
     {
         var pos = (Vector3)position - Vector3.forward * 10;
         Camera.main.transform.DOMove(pos, Globals.TIME_BETWEEN_TURNS);
+    }
+    private void ClampPosition()
+    {
+        var pos = transform.position;
+        pos.x = Mathf.Clamp(pos.x, xBounds[0], xBounds[1]);
+        pos.y = Mathf.Clamp(pos.y, yBounds[0], yBounds[1]);
+        transform.position = pos;
     }
 }

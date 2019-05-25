@@ -6,6 +6,8 @@ public class Compiler : MonoBehaviour {
     private static List<Vector2> horizontalBarrelsOnWater;
     private static List<Vector2> verticalBarrelsOnWater;
 
+    public static int steps = 0;
+
     public void Run()
     {
         FindObjectOfType<MapBuilder>().BuildMap();
@@ -20,12 +22,15 @@ public class Compiler : MonoBehaviour {
     }
     private IEnumerator Execution(List<Program> programs)
     {
-        int steps = 0;
+        HideOnExecution(true);
+        steps = 0;
         yield return null;
         TreasureMap.LoadMap();
         ResetPlayer();
+
         while (programs.Count > 0)
         {
+            ErrorHandling.ResetError();
             steps++;
 
             horizontalBarrelsOnWater = new List<Vector2>();
@@ -41,6 +46,8 @@ public class Compiler : MonoBehaviour {
                 yield return e.Value.TurnStart();
 
             int playerIndex = GetRandomPlayerWithFlagNotRised(programs);
+            FindObjectOfType<BlockFitter>().ShowBlock(programs[playerIndex].length - steps);
+
             CameraMovement.MoveTo(programs[playerIndex].player.position);
             yield return programs[playerIndex].blocks[0].Execute(programs[playerIndex].player);
             programs[playerIndex].blocks.Remove(programs[playerIndex].blocks[0]);
@@ -51,10 +58,14 @@ public class Compiler : MonoBehaviour {
                 yield return e.Value.TurnUpdate();
 
             yield return new WaitForSeconds(Globals.TIME_BETWEEN_TURNS);
-
+            
             ObstacleMap.FixDictionary();
             SwapBarrelForRaft();
+
+            if (ErrorHandling.errors.Count > 0)
+                break;
         }
+        HideOnExecution(false);
         yield return new WaitForSeconds(1f);
         if (TreasureMap.FinishLevel())
         {
@@ -73,6 +84,7 @@ public class Compiler : MonoBehaviour {
             var p = MapBuilder.LoadMap(MemoryCard.GetSelectedLevel()).initialPosition[i];
             LevelManager.beginBlocks[i].player.SetPosition((int)p.x, (int)p.y);
             LevelManager.beginBlocks[i].player.SetLook(0, -1);
+            LevelManager.beginBlocks[i].player.transform.GetChild(2).GetComponent<PlayerErrorMessage>().HideError();
         }
     }
     private int GetRandomPlayerWithFlagNotRised(List<Program> programs)
@@ -122,9 +134,20 @@ public class Compiler : MonoBehaviour {
         mapBuilder.CreateObstacle(mapBuilder.horizontalRaft, horizontalBarrelsOnWater);
         mapBuilder.CreateObstacle(mapBuilder.verticalRaft, verticalBarrelsOnWater);
     }
+    private void HideOnExecution(bool hide)
+    {
+        foreach(var o in FindObjectsOfType<HideOnExecution>())
+        {
+            if (hide)
+                o.Hide();
+            else
+                o.Show();
+        }
+    }
 }
 public class Program
 {
     public Player player;
     public List<Block> blocks;
+    public int length;
 }

@@ -14,6 +14,7 @@ public class Treasure : MonoBehaviour {
     public void Find()
     {
         found = true;
+        GetComponent<AudioSource>().Play();
     }
     public void ResetState()
     {

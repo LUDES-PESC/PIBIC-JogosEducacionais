@@ -44,7 +44,9 @@ MonoBehaviour:
     - {x: 1, y: -1}
     woodenBox:
     - {x: -1, y: 0}
-    pointyRocks: []
+    pointyRocks:
+    - {x: 2, y: 1}
+    - {x: 1, y: 0}
     verticalBarrel:
     - {x: 0, y: 0}
     horizonalBarrel:
@@ -56,13 +58,16 @@ MonoBehaviour:
     leftCannon: []
     rightCannon: []
     treasures: []
-    bigTreasure: {x: 1, y: -1}
+    bigTreasures:
+    - {x: 1, y: -1}
   maxSteps: 8
   tutorial:
-  - title: Empurrando barris
-    description: "Voc\xEA sabia que \xE9 poss\xEDvel empurrar um barril andando em
-      sua dire\xE7\xE3o? Mas depende de como o barril estiver ca\xEDdo, claro."
-    image: {fileID: 21300000, guid: 43b3fed333e40fa4ea66d372d0d39388, type: 3}
+  - title: Empurrando barris 2
+    description: "Para empurrar um barril voc\xEA tem que estar atento em como ele
+      est\xE1 caido. Voc\xEA s\xF3 consegue empurr\xE1-lo na dire\xE7\xE3o que est\xE1
+      ca\xEDdo."
+    image: {fileID: 21300000, guid: 0ed6b0128daafeb438a254c75755c0b9, type: 3}
+  cameraInitialPosition: {x: 0.5, y: 0.5}
   wait: 0
   shoot: 0
   riseFlag: 0

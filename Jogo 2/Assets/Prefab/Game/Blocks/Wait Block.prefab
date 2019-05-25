@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114123248929278850}
   - component: {fileID: 114843397769701098}
   - component: {fileID: 82440950795075356}
+  - component: {fileID: 225539507182412634}
   m_Layer: 5
   m_Name: Wait Block
   m_TagString: Untagged
@@ -263,3 +264,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 5}
   m_SizeDelta: {x: -50, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &225539507182412634
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1615915168189808}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

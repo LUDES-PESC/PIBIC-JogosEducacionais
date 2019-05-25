@@ -10,6 +10,7 @@ public class LevelData : ScriptableObject {
     public LevelMap map;
     public int maxSteps;
     public List<TutorialInfo> tutorial;
+    public Vector2 cameraInitialPosition;
 
     [Header("Available Blocks")]
     public bool wait;

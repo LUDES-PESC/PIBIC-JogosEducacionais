@@ -25,3 +25,6 @@ public class Error
         this.text = text;
     }
 }
+public enum ErrorType {
+    DIG_IN_WRONG_TILE, WALK_ON_WATER, WALK_ON_FIXED_OBJECT
+}

@@ -53,6 +53,7 @@ public abstract class Block : MonoBehaviour, IDragHandler, IBeginDragHandler, ID
             GetComponent<Image>().raycastTarget = false;
             dragged = this;
         }
+        SetBlockAlpha();
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -61,6 +62,7 @@ public abstract class Block : MonoBehaviour, IDragHandler, IBeginDragHandler, ID
     }
     public void OnEndDrag(PointerEventData eventData)
     {
+        SetBlockAlpha();
         CameraMovement.canBeMoved--;
         GetComponent<Image>().raycastTarget = true;
         dragged = null;
@@ -91,6 +93,7 @@ public abstract class Block : MonoBehaviour, IDragHandler, IBeginDragHandler, ID
                 SetNextBlock(dragged);
             }
         }
+        FindObjectOfType<BlockFitter>().UpdateSize();
     }
     public void SetNextBlock(Block block)
     {
@@ -134,5 +137,12 @@ public abstract class Block : MonoBehaviour, IDragHandler, IBeginDragHandler, ID
         rect.anchorMin = new Vector2(0.5f, 1f);
         rect.anchorMax = new Vector2(0.5f, 1f);
         rect.pivot = new Vector2(0.5f, 1f);
+    }
+    private void SetBlockAlpha()
+    {
+        if (previous == null)
+            GetComponent<CanvasGroup>().DOFade(0.75f, 0);
+        else
+            GetComponent<CanvasGroup>().DOFade(1, 0);
     }
 }

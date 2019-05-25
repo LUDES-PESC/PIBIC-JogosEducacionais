@@ -78,14 +78,17 @@ public class MapBuilder : MonoBehaviour {
     public void CreateTreasures()
     {
         LevelMap levelMap = LoadMap(MemoryCard.GetSelectedLevel());
-        var bigT = Instantiate(bigTreasure, treasureRoot);
-        bigT.transform.position = new Vector3(levelMap.bigTreasure.x, levelMap.bigTreasure.y, 0) * Globals.TILE_SIZE + new Vector3(0.5f, 0.5f, 0f);
-        bigT.GetComponent<Treasure>().GetPosition();
         foreach (var pos in levelMap.treasures)
         {
             var smallT = Instantiate(smallTreasure, treasureRoot);
             smallT.transform.position = new Vector3(pos.x, pos.y, 0) * Globals.TILE_SIZE + new Vector3(0.5f, 0.5f, 0f);
             smallT.GetComponent<Treasure>().GetPosition();
+        }
+        foreach (var pos in levelMap.bigTreasures)
+        {
+            var bigT = Instantiate(bigTreasure, treasureRoot);
+            bigT.transform.position = new Vector3(pos.x, pos.y, 0) * Globals.TILE_SIZE + new Vector3(0.5f, 0.5f, 0f);
+            bigT.GetComponent<Treasure>().GetPosition();
         }
     }
     private void Clear()

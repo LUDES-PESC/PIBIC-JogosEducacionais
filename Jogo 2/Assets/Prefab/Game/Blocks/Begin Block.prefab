@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114847581847068338}
   - component: {fileID: 114285520824786786}
   - component: {fileID: 82191327582331178}
+  - component: {fileID: 225582417533134008}
   m_Layer: 5
   m_Name: Begin Block
   m_TagString: Untagged
@@ -265,3 +266,14 @@ RectTransform:
   m_AnchoredPosition: {x: 50, y: -266.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!225 &225582417533134008
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1951687430502998}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

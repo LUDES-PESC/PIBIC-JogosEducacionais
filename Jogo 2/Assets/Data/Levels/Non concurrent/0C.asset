@@ -16,7 +16,24 @@ MonoBehaviour:
   map:
     initialPosition:
     - {x: 1, y: 1}
-    borders: []
+    borders:
+    - {x: -2, y: 2}
+    - {x: -1, y: 2}
+    - {x: 0, y: 2}
+    - {x: 1, y: 2}
+    - {x: 2, y: 2}
+    - {x: -2, y: 1}
+    - {x: 2, y: 1}
+    - {x: -2, y: 0}
+    - {x: 0, y: 0}
+    - {x: 2, y: 0}
+    - {x: -2, y: -1}
+    - {x: 2, y: -1}
+    - {x: -2, y: -2}
+    - {x: -1, y: -2}
+    - {x: 0, y: -2}
+    - {x: 1, y: -2}
+    - {x: 2, y: -2}
     ground:
     - {x: 1, y: -1}
     - {x: 1, y: 0}
@@ -38,9 +55,11 @@ MonoBehaviour:
     leftCannon: []
     rightCannon: []
     treasures: []
-    bigTreasure: {x: 1, y: -1}
-  maxSteps: 3
+    bigTreasures:
+    - {x: 1, y: -1}
+  maxSteps: 10
   tutorial: []
+  cameraInitialPosition: {x: 0.5, y: 0.5}
   wait: 0
   shoot: 0
   riseFlag: 0

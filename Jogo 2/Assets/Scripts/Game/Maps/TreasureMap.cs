@@ -27,7 +27,7 @@ public class TreasureMap : MonoBehaviour {
         foreach(Treasure t in treasures.Values)
         {
             if (t.bigTreasure)
-                ti.bigTreasure = t;
+                ti.bigTreasures.Add(t);
             else if(t.found)
                 ti.littleTreasures.Add(t);
         }
@@ -37,14 +37,14 @@ public class TreasureMap : MonoBehaviour {
     {
         foreach(var t in treasures.Values)
         {
-            if (t.bigTreasure && t.found)
-                return true;
+            if (t.bigTreasure && !t.found)
+                return false;
         }
-        return false;
+        return true;
     }
 }
 public class TreasureInfo
 {
-    public Treasure bigTreasure;
+    public List<Treasure> bigTreasures = new List<Treasure>();
     public List<Treasure> littleTreasures = new List<Treasure>();
 }
