@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\Game\Maps\ObstacleMap.cs" />
     <Compile Include="Assets\Scripts\Game\Maps\Treasure.cs" />
     <Compile Include="Assets\Scripts\Game\Maps\TreasureMap.cs" />
+    <Compile Include="Assets\Scripts\Game\Objects\Jewel.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\Barrel\HorizontalBarrel.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\Barrel\VerticalBarrel.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\Bullet.cs" />

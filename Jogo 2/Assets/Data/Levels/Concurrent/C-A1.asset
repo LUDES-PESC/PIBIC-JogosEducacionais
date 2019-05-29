@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: C-A1
   m_EditorClassIdentifier: 
   title: Ilha dos Amigos
-  thumbnail: {fileID: 21300000, guid: 4def344a71406a54e9809504225a6592, type: 3}
+  thumbnail: {fileID: 21300000, guid: 4262828ab8e28ef4eba563c8854e7bce, type: 3}
   map:
     initialPosition:
     - {x: -2, y: 2}

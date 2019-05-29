@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 
 public class BlockFitter : MonoBehaviour {
-    private const float BLOCK_SIZE = 100;
+    private const float BLOCK_SIZE = 95;
     [SerializeField] private RectTransform contentRect;
     [SerializeField] private ScrollRect scroll;
 

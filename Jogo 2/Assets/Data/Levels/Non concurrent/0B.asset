@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: 0B
   m_EditorClassIdentifier: 
   title: Ilha Sinuosa
-  thumbnail: {fileID: 21300000, guid: ce7d05349d367274b88f2444f5581db8, type: 3}
+  thumbnail: {fileID: 21300000, guid: b13047859cdc60241ac0b43910000920, type: 3}
   map:
     initialPosition:
     - {x: -2, y: 2}

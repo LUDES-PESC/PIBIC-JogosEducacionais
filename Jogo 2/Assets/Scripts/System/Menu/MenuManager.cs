@@ -27,4 +27,8 @@ public class MenuManager : MonoBehaviour {
         currentScreen = screenIndex;
         screens[currentScreen].Show();
     }
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }

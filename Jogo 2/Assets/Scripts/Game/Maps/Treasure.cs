@@ -6,6 +6,7 @@ public class Treasure : MonoBehaviour {
     public bool bigTreasure;
     public bool found;
     public Vector2Int position;
+    public GameObject jewelPrefab;
 
     public void GetPosition()
     {
@@ -15,6 +16,8 @@ public class Treasure : MonoBehaviour {
     {
         found = true;
         GetComponent<AudioSource>().Play();
+        var j = Instantiate(jewelPrefab);
+        j.transform.position = transform.position;
     }
     public void ResetState()
     {

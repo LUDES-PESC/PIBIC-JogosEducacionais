@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: 4A
   m_EditorClassIdentifier: 
   title: Ilha das pedras pontudas
-  thumbnail: {fileID: 21300000, guid: 4def344a71406a54e9809504225a6592, type: 3}
+  thumbnail: {fileID: 21300000, guid: b13047859cdc60241ac0b43910000920, type: 3}
   map:
     initialPosition:
     - {x: -1, y: 2}
@@ -74,7 +74,7 @@ MonoBehaviour:
     - {x: 2, y: -1}
     bigTreasures:
     - {x: -1, y: 0}
-  maxSteps: 15
+  maxSteps: 16
   tutorial:
   - title: "Agora \xE9 com voc\xEA!"
     description: "Chega de explica\xE7\xF5es! Quero ver se voc\xEA entendeu e consegue

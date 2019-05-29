@@ -151,6 +151,8 @@ MonoBehaviour:
   bigTreasure: 0
   found: 0
   position: {x: 0, y: 0}
+  jewelPrefab: {fileID: 1005433612888614, guid: eae3c879981307b4698bbe317675b267,
+    type: 2}
 --- !u!212 &212706280148640846
 SpriteRenderer:
   m_ObjectHideFlags: 1

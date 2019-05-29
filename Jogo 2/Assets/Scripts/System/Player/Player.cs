@@ -81,6 +81,7 @@ public class Player : MonoBehaviour
     }
     public IEnumerator Shoot()
     {
+        GetComponent<AudioSource>().Play();
         isWaiting = false;
         Vector2Int bulletPosition = position;
         for (int i = 0; i < Globals.BULLET_RANGE; i++)

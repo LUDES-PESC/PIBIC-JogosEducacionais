@@ -25,7 +25,7 @@ public class Cannon : Obstacle, IBulletTarget {
                 direction = Vector2Int.right;
                 break;
         }
-        GetComponent<SpriteRenderer>().sprite = cannonDirections[(int)type];
+        transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = cannonDirections[(int)type];
     }
     public IEnumerator OnBulletTouch()
     {
@@ -33,6 +33,7 @@ public class Cannon : Obstacle, IBulletTarget {
     }
     public IEnumerator ShootBullet()
     {
+        GetComponent<AudioSource>().Play();
         Vector2Int bulletPosition = position;
         for (int i = 0; i < Globals.BULLET_RANGE; i++)
         {
