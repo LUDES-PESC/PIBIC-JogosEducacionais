@@ -18,7 +18,7 @@ public class LevelScreen : Screen
         backButton.DOAnchorPosY(95, duration);
         title.DOAnchorPosY(-80, duration);
         yield return worldMap.Close(0);
-        yield return worldMap.Open(0);
+        yield return worldMap.Open(MemoryCard.Load().GetLastUnlockedWorld());
     }
     public override IEnumerator Close(float duration = 0.25F)
     {
@@ -28,10 +28,6 @@ public class LevelScreen : Screen
         title.DOAnchorPosY(80, duration);
         yield return worldMap.Close(duration);
     }
-    public override void OnClose()
-    {
-    }
-    public override void OnOpen()
-    {
-    }
+    public override void OnClose(){}
+    public override void OnOpen(){}
 }

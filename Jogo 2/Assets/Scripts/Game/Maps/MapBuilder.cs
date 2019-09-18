@@ -31,7 +31,7 @@ public class MapBuilder : MonoBehaviour {
     {
         Clear();
         ObstacleMap.ResetMap();
-        LevelMap levelMap = LoadMap(MemoryCard.GetSelectedLevel());
+        LevelMap levelMap = LevelManager.GetCurrentLevelData().map;
         DrawFloor(groundTile, levelMap.ground);
         DrawFloor(waterTile, levelMap.borders);
         CreateObstacle(horizontalBarrel, levelMap.horizonalBarrel);
@@ -77,7 +77,7 @@ public class MapBuilder : MonoBehaviour {
     }
     public void CreateTreasures()
     {
-        LevelMap levelMap = LoadMap(MemoryCard.GetSelectedLevel());
+        LevelMap levelMap = LevelManager.GetCurrentLevelData().map;
         foreach (var pos in levelMap.treasures)
         {
             var smallT = Instantiate(smallTreasure, treasureRoot);

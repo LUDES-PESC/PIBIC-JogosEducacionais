@@ -97,9 +97,6 @@
     <Compile Include="Assets\Scripts\Game\Obstacles\Raft\HorizontalRaft.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\Raft\VerticalRaft.cs" />
     <Compile Include="Assets\Scripts\Game\Obstacles\WoodenBox.cs" />
-    <Compile Include="Assets\Scripts\Game\SaveAndLoad\LevelData.cs" />
-    <Compile Include="Assets\Scripts\Game\SaveAndLoad\MemoryCard.cs" />
-    <Compile Include="Assets\Scripts\Game\SaveAndLoad\WorldData.cs" />
     <Compile Include="Assets\Scripts\Game\UI\BlockFitter.cs" />
     <Compile Include="Assets\Scripts\Game\UI\HideOnExecution.cs" />
     <Compile Include="Assets\Scripts\System\BlockFactory.cs" />
@@ -125,12 +122,16 @@
     <Compile Include="Assets\Scripts\System\NewMenu\MenuButton.cs" />
     <Compile Include="Assets\Scripts\System\NewMenu\Screen.cs" />
     <Compile Include="Assets\Scripts\System\NewMenu\Screens\CreditsScreen\CreditsScreen.cs" />
+    <Compile Include="Assets\Scripts\System\NewMenu\Screens\LevelScreen\LevelButton.cs" />
     <Compile Include="Assets\Scripts\System\NewMenu\Screens\LevelScreen\LevelScreen.cs" />
     <Compile Include="Assets\Scripts\System\NewMenu\Screens\LevelScreen\WorldMap.cs" />
     <Compile Include="Assets\Scripts\System\NewMenu\Screens\StartScreen.cs" />
     <Compile Include="Assets\Scripts\System\Player\Player.cs" />
     <Compile Include="Assets\Scripts\System\Player\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\System\Player\PlayerErrorMessage.cs" />
+    <Compile Include="Assets\Scripts\System\SaveAndLoad\LevelData.cs" />
+    <Compile Include="Assets\Scripts\System\SaveAndLoad\MemoryCard.cs" />
+    <Compile Include="Assets\Scripts\System\SaveAndLoad\WorldData.cs" />
     <Compile Include="Assets\Scripts\System\Tutorial Panel\TutorialPanel.cs" />
     <Compile Include="Assets\Scripts\System\WorldList.cs" />
     <None Include="Assets\Levels\level_1.txt" />

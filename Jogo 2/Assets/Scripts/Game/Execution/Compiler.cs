@@ -81,7 +81,7 @@ public class Compiler : MonoBehaviour {
     {
         for (int i = 0; i < LevelManager.beginBlocks.Count; i++)
         {
-            var p = MapBuilder.LoadMap(MemoryCard.GetSelectedLevel()).initialPosition[i];
+            var p = LevelManager.GetCurrentLevelData().map.initialPosition[i];
             LevelManager.beginBlocks[i].player.SetPosition((int)p.x, (int)p.y);
             LevelManager.beginBlocks[i].player.SetLook(0, -1);
             LevelManager.beginBlocks[i].player.transform.GetChild(2).GetComponent<PlayerErrorMessage>().HideError();

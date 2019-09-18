@@ -23,6 +23,7 @@ public class WorldMap : MonoBehaviour {
 
     public IEnumerator Open(int worldIndex, float duration = DURATION)
     {
+        currentWorld = worldIndex;
         var rect = GetComponent<RectTransform>();
         var size = rect.sizeDelta;
         rect.DOAnchorPosY(SHOWN_Y, duration);
@@ -51,9 +52,11 @@ public class WorldMap : MonoBehaviour {
     }
     public IEnumerator Change(int bias)
     {
-        if (currentWorld + bias < 0 || currentWorld + bias > worldList.worlds.Count - 1)
+        MemoryCard mc = MemoryCard.Load();
+        int lastUnlockedWorld = mc.levels.Count-1;
+        if (currentWorld + bias < 0 || currentWorld + bias > lastUnlockedWorld)
             yield break;
-        var index = Mathf.Clamp(currentWorld + bias, 0, worldList.worlds.Count-1);
+        var index = Mathf.Clamp(currentWorld + bias, 0, lastUnlockedWorld);
         yield return Close();
         currentWorld = index;
         yield return Open(index);
@@ -67,10 +70,18 @@ public class WorldMap : MonoBehaviour {
     }
     public void BuildPath(List<Vector2> positions)
     {
-        for (int i = 0; i < positions.Count; i++)
+        MemoryCard mc = MemoryCard.Load();
+        List<LevelProgress> levels = mc.levels[currentWorld].levels;
+
+        for (int i = 0; i < levels.Count; i++)
         {
+
             var go = Instantiate(levelPrefab, levelRoot).GetComponent<RectTransform>();
             go.anchoredPosition = positions[i];
+            go.GetComponent<LevelButton>().SetInfo(
+                i, 
+                currentWorld,
+                levels[i].GetStars(worldList.worlds[currentWorld].levels[i]));
         }
     }
 }

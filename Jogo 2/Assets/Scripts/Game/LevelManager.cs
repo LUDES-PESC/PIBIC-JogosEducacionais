@@ -20,12 +20,17 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] private List<Color> playerColors;
 
     [Header("LevelMaps")]
+    [SerializeField] public WorldList worlds;
     [SerializeField] public LevelList levels;
+
+    [Header("Temp")]
+    public int selectedLevel;
+    public int selectedWorld;
 
     private void Start () {
         FindObjectOfType<BlockFitter>().UpdateSize();
         me = this;
-        var level = levels.levels[MemoryCard.GetSelectedLevel()];
+        var level = GetCurrentLevelData();
         if(level.tutorial.Count > 0)
             FindObjectOfType<TutorialPanel>().OpenTutorial(level.tutorial);
         CreatePlayer();
@@ -36,8 +41,8 @@ public class LevelManager : MonoBehaviour {
     private void CreatePlayer()
     {
         beginBlocks = new List<BeginBlock>();
-        LevelMap level = MapBuilder.LoadMap(MemoryCard.GetSelectedLevel());
-        for(int i = 0; i < level.initialPosition.Count;i++)
+        LevelMap level = GetCurrentLevelData().map;
+        for (int i = 0; i < level.initialPosition.Count;i++)
         {
             var p = Instantiate(player).GetComponent<Player>();
             p.SetLook(0,-1);
@@ -48,5 +53,9 @@ public class LevelManager : MonoBehaviour {
             b.SetColor(playerColors[i]);
             beginBlocks.Add(b);
         }
+    }
+    public static LevelData GetCurrentLevelData()
+    {
+        return me.worlds.GetLevel(me.selectedWorld, me.selectedLevel);
     }
 }

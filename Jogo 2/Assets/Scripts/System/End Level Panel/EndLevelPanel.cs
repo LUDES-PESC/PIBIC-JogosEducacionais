@@ -46,6 +46,7 @@ public class EndLevelPanel : MonoBehaviour {
     }
     public void SaveProgress(TreasureInfo info, int steps)
     {
+        /*
         var memory = MemoryCard.Load();
         print("A: " + memory.levels[MemoryCard.GetSelectedLevel()].bigTreasures);
         if (memory.levels[MemoryCard.GetSelectedLevel()].bigTreasures == 0)
@@ -64,5 +65,6 @@ public class EndLevelPanel : MonoBehaviour {
             info.bigTreasures.Count : memory.levels[MemoryCard.GetSelectedLevel()].bigTreasures;
 
         memory.Save();
+        */
     }
 }
